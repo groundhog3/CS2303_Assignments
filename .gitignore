@@ -1,0 +1,14 @@
+# Ignore everything
+*
+OneDrive/
+
+# But not these files...
+!.gitignore
+
+
+# ...even if they are in subdirectories
+!*/
+
+# if the files to be tracked are in subdirectories
+!*/cs2303_hws/*
+!*/cs2303_labs/*
