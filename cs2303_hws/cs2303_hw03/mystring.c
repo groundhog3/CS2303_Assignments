@@ -1,5 +1,5 @@
 /** mystring.c
- * @author Mike Ciaraldi, Blake Nelson
+ * @author Ryan Mechery, Mike Ciaraldi, Blake Nelson
  * Custom versions of some of the C-style string functions
 */
 
@@ -134,7 +134,7 @@ char *mystrncat(char *dest, const char *src, size_t n){
 
   //loops through characters of src until it hits n
   // or hits a null character
-  for (s = 0; s < n && src[i] != '\0'; s++){
+  for (s = 0; s < n && src[s] != '\0'; s++){
     dest[d++] = src[s];
   }
 
@@ -144,9 +144,12 @@ char *mystrncat(char *dest, const char *src, size_t n){
   return dest;
 }
 
-/**
- * 
- * 
+/** copies at most `n` bytes from src to dest
+ * @param dest c-string pointer to copy to
+ * @param src c-string pointer to copy from
+ * @return pointer to dest
+ * @warning If there is no null byte among the first n  bytes
+   of src, the string placed in dest will not be null-terminated.
  * */
 char *mystrncpy(char *dest, const char *src, size_t n){
   size_t i; //counter for dest[]
@@ -163,6 +166,30 @@ char *mystrncpy(char *dest, const char *src, size_t n){
 
   return dest;
 }
+
+/** Copies at most `n` bytes to a new string which is a partial duplicate
+    of `s`
+ * @param src Pointer to string to be copied
+ * @param n number of bytes 
+ * @return Pointer to freshly-allocated string containing a `n` length duplicate of 
+        src or null if no memory is available
+ * */
+char *mystrndup(const char *s, size_t n){
+  char* newstr; // Pointer to memory which will hold new string
+
+  newstr = (char*) malloc(n);  // free space of n size
+
+  // If no memory was available, return null pointer immediately
+  if (newstr == 0) {
+    return (char *) 0;
+  }
+
+  // Otherwise, copy the string and return pointer to new string
+  mystrncpy(newstr, s, n);
+  return newstr;
+}
+
+
 
 
 
