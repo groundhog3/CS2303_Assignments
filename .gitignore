@@ -10,5 +10,5 @@ OneDrive/
 !*/
 
 # if the files to be tracked are in subdirectories
-!*/cs2303_hws/*
-!*/cs2303_labs/*
+!/cs2303_hws/*
+!/cs2303_labs/*
