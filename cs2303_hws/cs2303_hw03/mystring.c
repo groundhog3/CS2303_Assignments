@@ -37,15 +37,14 @@ char* mystrdup(const char* src) {
        to by s as an unsigned integer
  * */
 size_t mystrlen(const char *s){
-  char * beg = (char *) s; // contains the memory address of s[0]
-  char *ptr = (char *) s; //this is the pointer to mem which will hold string chars
+  const char *ptr = s; //this is the pointer to mem which will hold string chars
 
   // This loops through ptr until it reaches the null character.
   // each time, it increments the pointer to reach the next substring
   while(*ptr != '\0'){
     ptr++;
   }
-  return &ptr - &beg; 
+  return &ptr - &s; 
   //by returning the difference in mem addresses you get the size
 }
 
@@ -115,23 +114,56 @@ char* mystrcat(char *dest, const char *src){
   return dest;
 }
 
+
+/**  The  strcat() function appends the `n` characters from src string to the 
+     dest string. Doesn't need to be null-terminated if it contains `n` or more bytes. 
+     If src contains n or more bytes, strncat() writes n+1 bytes to dest  (n
+     from  src plus the terminating null byte).  Therefore, the size of dest
+     must be at least strlen(dest)+n+1.
+
+ * @param dest c-string pointer to be concatenated to
+ * @param src c-string pointer to concatenate from 
+ * @param n number of chars to copy
+ * @return pointer to dest
+ * */
 char *mystrncat(char *dest, const char *src, size_t n){
-  size_t i;
-  size_t d;
+  size_t s; //counter to hold idxs of src
+  size_t d; //counter to hold idxs of dest
 
-  d = mystrlen(dest); //d is initalized to index to index of '\0'
+  d = mystrlen(dest); //d is initalized to index of '\0'
 
-  for (i = 0; i < n && src[i] != '\0'; i++){
-    dest[d] = src[i];
-    d++;   
+  //loops through characters of src until it hits n
+  // or hits a null character
+  for (s = 0; s < n && src[i] != '\0'; s++){
+    dest[d++] = src[s];
   }
 
-  for (; i < n; i++){
-    dest[d] = '\0';
-    d++;
-  }
+  //null-terminates last character 
+  dest[d] = '\0';
 
   return dest;
 }
+
+/**
+ * 
+ * 
+ * */
+char *mystrncpy(char *dest, const char *src, size_t n){
+  size_t i; //counter for dest[]
+
+  // loops through src until it hits n chars
+  // or it reaches end of src
+  for(i = 0; i < n && src[i]!= '\0'; i++)
+    dest[i] = src[i];
+
+  // if there are still n chars to fill
+  // fill it with null chars
+  for(i; i < n; i++)
+    dest[i] = '\0';
+
+  return dest;
+}
+
+
 
 

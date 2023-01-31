@@ -38,15 +38,14 @@ char* mystrdup(const char* src) {
        to by s as an unsigned integer
  * */
 size_t mystrlen(const char *s){
-  char * beg = (char *) s; // contains the memory address of s[0]
-  char *ptr = (char *) s; //this is the pointer to mem which will hold string chars
+  const char *ptr = (char *) s; //this is the pointer to mem which will hold string chars
 
   // This loops through ptr until it reaches the null character.
   // each time, it increments the pointer to reach the next substring
   while(*ptr != '\0'){
     ptr++;
   }
-  return &ptr - &beg; 
+  return &ptr - &s ; 
   //by returning the difference in mem addresses you get the size
 }
 
@@ -76,7 +75,7 @@ char* mystrcpy(char *dest, const char *src){
     *dest = *src;
     dest++;
     src++;
-  } while(*(src - 1) != '\0');
+  } while(*(src-1) != '\0');
 
   return dest;
 }

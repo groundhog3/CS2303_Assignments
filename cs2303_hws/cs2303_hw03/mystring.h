@@ -10,7 +10,8 @@ char* mystrdup(const char* src);
 size_t mystrlen(const char *s);
 char* mystrcpy(char *dest, const char *src);
 char* mystrcat(char *dest, const char *src);
-char *strncat(char *dest, const char *src, size_t n);
+char *mystrncat(char *dest, const char *src, size_t n);
+char *mystrncpy(char *dest, const char *src, size_t n);
 
 
 #endif
