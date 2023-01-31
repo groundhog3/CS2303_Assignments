@@ -1,4 +1,4 @@
-all: ctest 
+all: ctest
 
 ctest: ctest.o mystring.o
 	gcc ctest.o mystring.o -o ctest
@@ -10,7 +10,7 @@ mystring.o: mystring.c mystring.h
 	gcc -c mystring.c
 
 clean: 
-	rm -f *.o ctest
+	rm -f *.o ctest tester
 
 docs:
 	doxygen

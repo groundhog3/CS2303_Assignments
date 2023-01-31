@@ -54,27 +54,27 @@ int main()
   printf("\n");
   printf("Concatenating a2 to a1, with copy_limit = %d\n", copy_limit);
   if (copy_limit > 0) {
-	strncat(a1, a2, copy_limit);
-  }
-  printf("a1: %s\n", a1);
+   strncat(a1, a2, copy_limit);
+ }
+ printf("a1: %s\n", a1);
 
   // Concatenate two character arrays safely, then print.
   copy_limit = MAX_CHARS - strlen(a1); 	// How much space is left?
   printf("\n");
   printf("Concatenating a3 to a1, with copy_limit = %d\n", copy_limit);
   if (copy_limit > 0) {
-	strncat(a1, a3, copy_limit);
-  }
-  printf("a1: %s\n", a1);
+   mystrncat(a1, a3, copy_limit);
+ }
+ printf("a1: %s\n", a1);
 
   // Duplicate a string, using my function, then print
-  printf("\n");
-  printf("Before dup, array a2 = %p, contents = %s\n", a2, a2);
-  p2 = mystrdup(a2);
-  printf("After dup, pointer p2 =  %p, contents = %s\n", p2, p2);
+ printf("\n");
+ printf("Before dup, array a2 = %p, contents = %s\n", a2, a2);
+ p2 = mystrdup(a2);
+ printf("After dup, pointer p2 =  %p, contents = %s\n", p2, p2);
 
   // Free the memory allocated on our behalf by mystrdup()
-  free(p2);
+ free(p2);
 
-  return 0;
+ return 0;
 }
