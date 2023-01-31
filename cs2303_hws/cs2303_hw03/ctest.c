@@ -28,8 +28,8 @@ int main()
   printf("Arrays:   a1: %p, a2: %p, a3: %p\n", a1, a2, a3);
   printf("Pointers: p1: %p, p2: %p\n", p1, p2);
 
-  strcpy(a1, "Hi"); 		// Initialize character array a1 with some text
-  strcpy(a3, "Hello, also");    // Initialize uinderfilled character array
+  mystrcpy(a1, "Hi"); 		// Initialize character array a1 with some text
+  mystrcpy(a3, "Hello, also");    // Initialize uinderfilled character array
 
 
   // Print the values of the C-style strings
@@ -43,7 +43,7 @@ int main()
   *  Terminator character in the last element of the array as well as after "Hi"
   */
   a1[MAX_CHARS] = '\0';		
-  strcat(a1, a2);
+  mystrcat(a1, a2);
   printf("\n");
   printf("After concatenating a2 to the end of a1\n");
   printf("a1: %s\n", a1);

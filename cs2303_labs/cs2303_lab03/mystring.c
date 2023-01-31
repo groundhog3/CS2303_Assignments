@@ -70,7 +70,8 @@ size_t mystrlen(const char *s){
 
  * */
 char* mystrcpy(char *dest, const char *src){
-
+  // loop through src characters and copy all 
+  // characters from  src[0] to '\0' to dest
   do{
     *dest = *src;
     dest++;

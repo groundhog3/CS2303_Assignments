@@ -69,29 +69,53 @@ size_t mystrlen(const char *s){
 
  * */
 char* mystrcpy(char *dest, const char *src){
-  while(*src != '\0' ){
-     *dest = *src;
-     dest++;
-     src++;
-  }
+  // loop through src characters and copy all 
+  // characters from  src[0] to '\0' to dest
+  do{
+    *dest = *src;
+    dest++;
+    src++;
+  } while(*(src - 1) != '\0');
 
   return dest;
 }
 
+/**
+ * The  strcat() function appends the src string to the dest string, over‐
+   writing the terminating null byte ('\0') at the end of dest,  and  then
+   adds  a  terminating  null  byte.
+ *
+ * @param dest c-string pointer you want src to be concatenated to
+ * @param src c-string pointer to concatenate from
+ * @return pointer to dest containing dest + src
+ * @warning  The strings may not overlap, and the dest string must have enough 
+ *  space for the  result.   If  dest  is  not large  enough, program behavior 
+ *  is unpredictable; buffer overruns are a favorite avenue for attacking secure 
+ *  programs.
+
+ * */
 char* mystrcat(char *dest, const char *src){
+  //this loops through dest until it reaches '\0'
   while(*dest != '\0'){
     dest++;
   }
 
-  while(*src != '\0'){
+  //*dest now equals '\0' which will be overridden
+
+  // this will loop through src from src[0] to 
+  // src[mystrlen(src) + 1]
+  // final character of dest should be '\0' if
+  // src contains '\0'
+  do{
     *dest = *src;
     dest++;
     src++;
-  }
+  } while(*(src - 1) != '\0');
+
   return dest;
 }
 
-char *strncat(char *dest, const char *src, size_t n){
+char *mystrncat(char *dest, const char *src, size_t n){
   size_t i;
   size_t d;
 
