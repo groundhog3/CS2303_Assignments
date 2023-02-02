@@ -108,25 +108,83 @@ Student** make_students(int num_students){
 
 /** This function prints out `num` Student structs with formatting.
  * 	@param st array of Student pointers
- * 	@param number of 
+ * 	@param number of st structs to print out
+ *  @warning If you pass in a null pointer, this function will catch it
+ * 		but it will NOT stop the program.
  * */
 void print_students(Student** st, int num){
 	if(st == NULL){
 		printf("Not enough space in memory to create %d Student structs.\n", num );
 		printf("Try again.\n");
 	}
+	//if st is not null print each struct out
 	else {
-		for(int i = 0; i < num && st[i] != NULL; i++){
+		//loops until either prints `num` structs or hits null struct
+		for(int i = 0; i < num; i++){
+			if(st[i] == NULL){
+				printf("Student %d of %d is \x1b[31mNULL\x1b[0m\n", i, num);
+				printf("Cannot print this collection!\n\n");
+				break;
+			}
+
 			print_student(st[i]);
 		}
 	}
 }
 
+Student** make_shallow_copy(Student** og_st, int size){
+	Student** copy_st = malloc(sizeof(Student*) * size);
+	if(copy_st == NULL){
+		return NULL;
+	}
+
+	for(int i = 0; i < size && og_st[i] != NULL; i++){
+		copy_st[i] = og_st[i];
+	}
+
+	return copy_st;
+}
+
+void free_students(Student** st, int size){
+	for(int i = 0; i < size  && st[i] != NULL; i++){
+		free(st[i]); //deallocate mem
+		st[i] = NULL; //after free sets pointer to NULL
+	}
+}
+
+Student** make_deep_copy(Student** og_st, int size){
+	Student** copy_st = malloc(sizeof(Student) * size);
+	if(copy_st == NULL)
+		return NULL;
+
+	for(int i = 0; i < size && og_st[i] != NULL; i++){
+		mystrncpy(copy_st[i]->name, og_st->name, MAX_NAME_SIZE);
+		copy_st[i]->age = og_st->age;
+		copy_st[i]->id = og_st->id;
+		copy_st[i]->gpa = og_st->gpa;
+	}
+}
 
 int main(){
-	int wpi_size = 10;
-	Student ** wpi = make_students(wpi_size);
-	print_students(wpi, wpi_size + 10);
+	const int wpi_size = 3; //initialize size of wpi school
+
+	printf("\x1b[32mWPI School Students:\x1b[0m\n");
+	Student **wpi = make_students(wpi_size); //make collection of students
+	print_students(wpi, wpi_size ); //print them out
+
+	printf("\x1b[32mWPI_SHALLOW_COPY School Students:\x1b[0m\n");
+	Student** wpi_shallow_copy = 
+		make_shallow_copy(wpi, wpi_size); //shallow copy of wpi
+	print_students(wpi_shallow_copy, wpi_size); //print out shallow copy
+
+	free_students(wpi, wpi_size); //deallocate and assign pointers to null
+
+	printf("\x1b[31mFREED WPI School Students:\x1b[0m\n");
+	print_students(wpi, wpi_size); //should print out nothing
+
+	print_students(wpi_shallow_copy, wpi_size); //should print out nothing
+
+
 
 	return 0;
 }
