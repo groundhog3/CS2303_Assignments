@@ -10,9 +10,10 @@ char* mystrdup(const char* src);
 size_t mystrlen(const char *s);
 char* mystrcpy(char *dest, const char *src);
 char* mystrcat(char *dest, const char *src);
-char *mystrncat(char *dest, const char *src, size_t n);
-char *mystrncpy(char *dest, const char *src, size_t n);
-char *mystrndup(const char *s, size_t n);
-
+char* mystrncat(char *dest, const char *src, size_t n);
+char* mystrncpy(char *dest, const char *src, size_t n);
+char* mystrndup(const char *s, size_t n);
+char  get_random_char(int type);
+void generate_random_name(char * og_name, int MAX_CHARS);
 
 #endif

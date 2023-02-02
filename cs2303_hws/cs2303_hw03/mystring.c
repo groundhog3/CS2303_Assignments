@@ -5,8 +5,11 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
 // Have to #include stdlib.h because it is needed to use malloc()
 #include "mystring.h"
+#include "student.h"
 
 /** Duplicates a C-style string.
  @param src Pointer to string to be copied
@@ -189,6 +192,90 @@ char *mystrndup(const char *s, size_t n){
   return newstr;
 }
 
+/** This code returns a random ASCII character depending on type inputted.
+ *  1. If type is 0, return any ascii character [A-Z, a-z, 0-9].
+ *  2. If type is 1, return an upper case character [A-Z]
+ *  3. If type is 2, return a lower case character [a-z]
+ *  4. If type is 3, return a random digit [0-9]
+ * @param type integer within range [0-3]
+ * @return random character (in case of error return '\0')
+ * @warning Make sure time seed generator is initialized once before using
+ *  this function.
+ * */
+char  get_random_char(int type){
+  const int num_digits = 10; //prevent using magic numbers
+  const int num_letters = 26; //prevent using magic numbers
+  const int start_0 = 48; //ascii code of '0'
+  const int start_A = 65;  //ascii code of 'A'
+  const int start_a = 97;  //ascii code of 'a'
+
+  //if user wants any ascii character in range [A-Z, a-z, 0-9]
+  if(type == 0){
+    // generate a random number from [0, 62) 
+    int r = rand() % (num_digits + num_letters*2);
+
+    //if r is in [0, 10) then return a random digit
+    if(r < num_digits){
+      return r + start_0;
+    }
+
+    //if r is in [10, 36) then return a random upcase letter
+    else if(r < num_digits + num_letters){
+      //convert int from [0, 26) then cast to ASCII
+      return r - num_digits + start_A; 
+    }
+
+    //if r is in [36, 62) then return a random lowercase letter
+    else {
+      //convert int from [0, 26) then cast to ASCII
+      return r - num_letters - num_digits + start_a;
+    }
+  }
+
+  //else if user wants any ascii character in range [A-Z]
+  else if(type == 1){
+    return rand() % num_letters + start_A;
+  }
+
+  //else if user wants any ascii character in range [a-z]
+  else if(type == 2){
+    return rand() % num_letters + start_a;
+  }
+
+   //else if user wants any ascii character in range [0-9]
+  else if(type == 3){
+    return rand() % num_digits + start_0;
+  }
+
+
+  // if type not in [0,3] then return null char
+  return '\0';
+}
+
+void generate_random_name(char * og_name, int MAX_CHARS){
+  const int min = 3;
+  const int max = 10;
+  const int f_name_size = rand() % (max - min + 1)+ min;
+  const int l_name_size = rand() % (max - min + 1)+ min;
+  const int name_size = f_name_size + l_name_size + 2;
+
+  char* name =  (char*) malloc(name_size);
+  
+  int i;
+  for(i = 0; i < name_size - 1; i++ ){
+    if(i == f_name_size)
+      name[i] = ' ';
+    else if(i == 0 || i == f_name_size + 1)
+      name[i] = get_random_char(1);
+    else
+      name[i] = get_random_char(2);
+  }
+
+  name[i] = '\0';
+
+  mystrncpy(og_name, name, MAX_CHARS);
+  free(name);
+}
 
 
 

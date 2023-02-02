@@ -12,7 +12,7 @@ student: student.o mystring.o
 student.o: student.c student.h mystring.h
 	gcc -c student.c
 
-mystring.o: mystring.c mystring.h
+mystring.o: mystring.c mystring.h student.h
 	gcc -c mystring.c
 
 clean: 
