@@ -1,6 +1,5 @@
 # Ignore everything
 *
-OneDrive/
 
 # But not these files...
 !.gitignore
@@ -13,6 +12,7 @@ OneDrive/
 !/cs2303_hws/cs2303_hw01/*
 !/cs2303_hws/cs2303_hw02/*
 !/cs2303_hws/cs2303_hw02/html/*
+!/cs2303_hws/cs2303_hw03/*
 !/cs2303_hws/cs2303_hw03/html/*
 !/cs2303_labs/cs2303_lab01/*
 !/cs2303_labs/cs2303_lab02/html/*
