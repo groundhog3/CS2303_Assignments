@@ -98,13 +98,6 @@ int main()
    b_copy = mystrndup(b, s);
    printf("After dup, pointer b_copy to b[0:%lu] =  %p, contents = %s\n", s, b_copy, b_copy);
 
-   srand(time(0));
-   char random_name[MAX_CHARS];
-   for(int i = 0; i < 10; i++){
-    generate_random_name(random_name, MAX_CHARS);
-    printf("%s\n", random_name);
-   }
-
   // Free the memory allocated on our behalf by mystrdup()
    free(p2);
    free(b_copy);

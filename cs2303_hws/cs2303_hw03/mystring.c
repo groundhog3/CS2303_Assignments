@@ -213,68 +213,73 @@ char  get_random_char(int type){
   if(type == 0){
     // generate a random number from [0, 62) 
     int r = rand() % (num_digits + num_letters*2);
-
     //if r is in [0, 10) then return a random digit
     if(r < num_digits){
       return r + start_0;
     }
-
     //if r is in [10, 36) then return a random upcase letter
     else if(r < num_digits + num_letters){
       //convert int from [0, 26) then cast to ASCII
       return r - num_digits + start_A; 
     }
-
     //if r is in [36, 62) then return a random lowercase letter
     else {
       //convert int from [0, 26) then cast to ASCII
       return r - num_letters - num_digits + start_a;
     }
   }
-
   //else if user wants any ascii character in range [A-Z]
   else if(type == 1){
     return rand() % num_letters + start_A;
   }
-
   //else if user wants any ascii character in range [a-z]
   else if(type == 2){
     return rand() % num_letters + start_a;
   }
-
    //else if user wants any ascii character in range [0-9]
   else if(type == 3){
     return rand() % num_digits + start_0;
   }
 
-
   // if type not in [0,3] then return null char
   return '\0';
 }
 
-void generate_random_name(char * og_name, int MAX_CHARS){
-  const int min = 3;
-  const int max = 10;
-  const int f_name_size = rand() % (max - min + 1)+ min;
-  const int l_name_size = rand() % (max - min + 1)+ min;
-  const int name_size = f_name_size + l_name_size + 2;
 
-  char* name =  (char*) malloc(name_size);
+/** This function uses `get_random_char()` to generate a random name
+ *  of min length 5 and max length 22 for the student struct.
+ *  @param og_name this is the destination string pointer
+ *  @param max_chars maximum size of og_name pointer
+ * */
+char* generate_random_name(char * og_name, int max_chars){
+  const int min = 3; //min length of f_name and l_name
+  const int max = 10; //max length of f_name and l_name
+  const int f_name_size = rand() % (max - min + 1)+ min; //[3,10]
+  const int l_name_size = rand() % (max - min + 1)+ min; //[3,10]
+  const int name_size = f_name_size + l_name_size + 2;
+  //allocates space for f_name, space, l_name , & '\0'
+
+  char* name =  (char*) malloc(name_size); //creates temp pointer
   
-  int i;
+  int i; //counter for loop below
+
+  //this loops through name pointer and adds f_name, ' ', & l_name
+  // based on current index
   for(i = 0; i < name_size - 1; i++ ){
     if(i == f_name_size)
       name[i] = ' ';
     else if(i == 0 || i == f_name_size + 1)
-      name[i] = get_random_char(1);
+      name[i] = get_random_char(1); //get random upper case char
     else
-      name[i] = get_random_char(2);
+      name[i] = get_random_char(2); //get random lower case char
   }
 
-  name[i] = '\0';
+  name[i] = '\0'; //terminate string with null characters
 
-  mystrncpy(og_name, name, MAX_CHARS);
-  free(name);
+  mystrncpy(og_name, name, max_chars); //copies at most max_chars to og_name
+  free(name); //since name was temporary it frees it from memory
+
+  return og_name;
 }
 
 
