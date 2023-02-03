@@ -31,17 +31,16 @@ struct Student {
 
 typedef struct Student Student; 
 
-
-
 /** Dynamically allocates and returns pointer to a student struct in the heap.
  * 	@param name c-string pointer for Student.name
  * 	@param age  int for Student.age
  * 	@param id int for Student.id
  * 	@param gpa double for Student.gpa
+ * 	@return pointer to new Student struct
  * 	@warning If there is no space in memory, this method will return a null pointer.
  * */
 Student* make_student(char* name, int age, int id, double gpa){
-	Student* st = malloc(sizeof(Student)); //pointer to student in heap
+	Student* st = malloc(sizeof(Student)); //create new student in heap
 
 	//if no space in memory for st then just return null
 	if(st == NULL)
@@ -56,7 +55,7 @@ Student* make_student(char* name, int age, int id, double gpa){
 	return st; //return new student pointer
 }
 
-/** Prints student struct with formatting
+/** Prints fields of student struct with formatting
  * 	@param st pointer to Student struct
  * */
 void print_student(Student* st){
@@ -84,14 +83,13 @@ Student* make_random_student(){
 }
 
 /** This function returns an array of pointers to random student
- *  structs.
+    structs.
  * 	@param num_students number of students to be stored in array
  * 	@return array of student pointers
  * 	@warning this function will return null if there isn't enough space
  *  	in memory for specified student collection
  * */
 Student** make_students(int num_students){
-	srand(time(0)); //initialize random seed generator with cur time
 	Student ** st = malloc(sizeof(Student) * num_students);
 
 	//if there isn't enough space in mem for st collection
@@ -99,6 +97,7 @@ Student** make_students(int num_students){
 	if(st == NULL)
 		return NULL;
 
+	srand(time(0)); //initialize random seed generator with cur time
 	for(int i = 0; i < num_students; i++){
 		st[i] = make_random_student();  
 	}
@@ -114,8 +113,7 @@ Student** make_students(int num_students){
  * */
 void print_students(Student** st, int num){
 	if(st == NULL){
-		printf("Not enough space in memory to create %d Student structs.\n", num );
-		printf("Try again.\n");
+		printf("Given struct is \x1b[31mNULL\x1b[0m. Try again\n");
 	}
 	//if st is not null print each struct out
 	else {
@@ -132,6 +130,12 @@ void print_students(Student** st, int num){
 	}
 }
 
+/** Given an array of Student structs, return a shallow copy with an array of pointers
+ * 	@param og_st array of Student structs
+ * 	@param size number of structs in og_st
+ * 	@return array of Student struct pointers
+ *  @warning If there isn't enough space in memory, this function returns a NULL pointer.
+ * */
 Student** make_shallow_copy(Student** og_st, int size){
 	Student** copy_st = malloc(sizeof(Student*) * size);
 	if(copy_st == NULL){
@@ -145,6 +149,15 @@ Student** make_shallow_copy(Student** og_st, int size){
 	return copy_st;
 }
 
+
+/** Free all Structs in an array from the heap and set pointer to NULL
+ * 	@param st array of Student structs
+ * 	@size size number of structs in st
+ * 	@warning By setting pointers to null <em>after</em> struct has been 
+ * 		deallocated, it deletes memory addresses in original student struct. 
+ * 		However if a shallow_copy was created, it won't delete those pointers 
+ * 		from memory.User must keep this in mind. 
+ * */
 void free_students(Student** st, int size){
 	for(int i = 0; i < size  && st[i] != NULL; i++){
 		free(st[i]); //deallocate mem

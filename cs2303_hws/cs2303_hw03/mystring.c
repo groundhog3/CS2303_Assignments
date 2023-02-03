@@ -20,12 +20,12 @@ char* mystrdup(const char* src) {
   int length; 	// Length of the source string
   char* newstr; // Pointer to memory which will hold new string
 
-  length = mystrlen(src) + 1;  		// Leave space for the terminator
+  length = mystrlen(src) + 1;  		  // Leave space for the terminator
   newstr = (char*) malloc(length); 	// Must cast!
 
   // If no memory was available, return null pointer immediately
   if (newstr == 0) {
-	return (char *) 0;
+    return (char *) 0;
   }
 
   // Otherwise, copy the string and return pointer to new string
@@ -36,7 +36,7 @@ char* mystrdup(const char* src) {
 /**  The strlen() function calculates the length of the string pointed to by
        s, excluding the terminating null byte ('\0').
  * @param s pointer to source string
- * @return returns the number of bytes in the string pointed
+ * @return the number of bytes in the string pointed
        to by s as an unsigned integer
  * */
 size_t mystrlen(const char *s){
@@ -68,11 +68,12 @@ size_t mystrlen(const char *s){
      sary  if you can show that overflow is impossible, but be careful: pro‐
      grams can get changed over time, in ways that may make  the  impossible
      possible.
-
  * */
 char* mystrcpy(char *dest, const char *src){
   // loop through src characters and copy all 
   // characters from  src[0] to '\0' to dest
+
+  //do while allows '\0' to be copied as well
   do{
     *dest = *src;
     dest++;
@@ -104,8 +105,7 @@ char* mystrcat(char *dest, const char *src){
 
   //*dest now equals '\0' which will be overridden
 
-  // this will loop through src from src[0] to 
-  // src[mystrlen(src) + 1]
+  // this will loop through src[0] to src[mystrlen(src) + 1]
   // final character of dest should be '\0' if
   // src contains '\0'
   do{
@@ -130,21 +130,19 @@ char* mystrcat(char *dest, const char *src){
  * @return pointer to dest
  * */
 char *mystrncat(char *dest, const char *src, size_t n){
-  size_t s; //counter to hold idxs of src
-  size_t d; //counter to hold idxs of dest
+  char* d = dest + mystrlen(dest); //pointer for dest initialized to '\0'
+  int i = 0; //counter for n
 
-  d = mystrlen(dest); //d is initalized to index of '\0'
-
-  //loops through characters of src until it hits n
-  // or hits a null character
-  for (s = 0; s < n && src[s] != '\0'; s++){
-    dest[d++] = src[s];
+  //loops until end of src or it hits n chars
+  while(*src != '\0' && i < n){
+    *d++ = *src++;
+    i++;
   }
 
-  //null-terminates last character 
-  dest[d] = '\0';
+  *d = '\0'; 
+  //regardless of what happened prior, dest should be null terminated
 
-  return dest;
+  return dest; 
 }
 
 /** copies at most `n` bytes from src to dest
@@ -184,7 +182,7 @@ char *mystrndup(const char *s, size_t n){
 
   // If no memory was available, return null pointer immediately
   if (newstr == 0) {
-    return (char *) 0;
+    return NULL;
   }
 
   // Otherwise, copy the string and return pointer to new string
