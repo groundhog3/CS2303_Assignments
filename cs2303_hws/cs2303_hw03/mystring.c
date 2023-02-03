@@ -47,7 +47,7 @@ size_t mystrlen(const char *s){
   while(*ptr != '\0'){
     ptr++;
   }
-  return &ptr - &s; 
+  return ptr - s; 
   //by returning the difference in mem addresses you get the size
 }
 

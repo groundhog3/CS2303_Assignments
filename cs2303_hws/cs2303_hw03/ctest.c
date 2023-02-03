@@ -59,7 +59,7 @@ int main()
   printf("a1: %s\n", a1);
 
   // Concatenate two character arrays safely, then print.
-  copy_limit = MAX_CHARS - strlen(a1); 	// How much space is left?
+  copy_limit = MAX_CHARS - mystrlen(a1); 	// How much space is left?
   
   printf("\n");
   printf("Concatenating a2 to a1, with copy_limit = %d\n", copy_limit);
@@ -70,7 +70,7 @@ int main()
   }
 
   // Concatenate two character arrays safely, then print.
-  copy_limit = MAX_CHARS - strlen(a1); 	// How much space is left?
+  copy_limit = MAX_CHARS - mystrlen(a1); 	// How much space is left?
   printf("\n");
   printf("Concatenating a3 to a1, with copy_limit = %d\n", copy_limit);
   if (copy_limit > 0) {
