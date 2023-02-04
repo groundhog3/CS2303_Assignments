@@ -22,14 +22,13 @@
  *  @var Student.gpa
  *  Member 'gpa' contains grade point average out of 4.0
  */
-struct Student {
+typedef struct Student {
 	char name[MAX_NAME_SIZE];
 	int age;
 	int id;
 	double gpa;
-};
+} Student;
 
-typedef struct Student Student; 
 
 /** Dynamically allocates and returns pointer to a student struct in the heap.
  * 	@param name c-string pointer for Student.name
