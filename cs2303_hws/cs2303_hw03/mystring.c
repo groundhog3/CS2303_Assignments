@@ -178,7 +178,7 @@ char *mystrncpy(char *dest, const char *src, size_t n){
 char *mystrndup(const char *s, size_t n){
   char* newstr; // Pointer to memory which will hold new string
 
-  newstr = (char*) malloc(n);  // free space of n size
+  newstr = (char*) malloc(n + 1);  // free space for n chars and '\0'
 
   // If no memory was available, return null pointer immediately
   if (newstr == 0) {
@@ -186,7 +186,9 @@ char *mystrndup(const char *s, size_t n){
   }
 
   // Otherwise, copy the string and return pointer to new string
-  mystrncpy(newstr, s, n);
+  strncpy(newstr, s, n); //copies s[0:n] chars to newstr
+  *(newstr + n) = '\0'; //terminate last idx with null character
+
   return newstr;
 }
 
