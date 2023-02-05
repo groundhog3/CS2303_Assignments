@@ -13,7 +13,7 @@ char* mystrcat(char *dest, const char *src);
 char* mystrncat(char *dest, const char *src, size_t n);
 char* mystrncpy(char *dest, const char *src, size_t n);
 char* mystrndup(const char *s, size_t n);
-char  get_random_char(int type);
+char  get_alphanum(int type);
 char* generate_random_name(char * og_name, int max_chars);
 
 #endif

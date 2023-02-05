@@ -1,4 +1,4 @@
-all: ctest student
+all: ctest student_test 
 
 ctest: ctest.o mystring.o
 	gcc ctest.o mystring.o -o ctest
@@ -6,17 +6,20 @@ ctest: ctest.o mystring.o
 ctest.o: ctest.c mystring.h
 	gcc -c ctest.c
 
-student: student.o mystring.o
-	gcc student.o mystring.o -o student
+student_test: student_test.o mystring.o student.o 
+	gcc student_test.o mystring.o student.o  -o student_test
+
+student_test.o: student_test.c mystring.h student.h 
+	gcc -c student_test.c
 
 student.o: student.c student.h mystring.h
-	gcc -c student.c
+	gcc -c mystring.c student.c 
 
-mystring.o: mystring.c mystring.h student.h
+mystring.o: mystring.c mystring.h 
 	gcc -c mystring.c
 
 clean: 
-	rm -f *.o ctest student
+	rm -f *.o ctest student_test 
 
 docs:
 	doxygen

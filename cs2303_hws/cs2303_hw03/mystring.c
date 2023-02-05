@@ -9,7 +9,7 @@
 #include <time.h>
 // Have to #include stdlib.h because it is needed to use malloc()
 #include "mystring.h"
-#include "student.h"
+
 
 /** Duplicates a C-style string.
  @param src Pointer to string to be copied
@@ -192,7 +192,37 @@ char *mystrndup(const char *s, size_t n){
   return newstr;
 }
 
-/** This code returns a random ASCII character depending on type inputted.
+
+/** Returns a random alphanumeric. 
+ *  @return random alphanumeric character (in case of error return '\0')
+ *  @warning Make sure time seed generator is initialized once before using
+ *  this function.
+ * */
+char get_any_alphanumeric(){
+  const int num_digits = 10; //prevent using magic numbers
+  const int num_letters = 26; //prevent using magic numbers
+
+  // generate a random number from [0, 62) 
+  int r = rand() % (num_digits + num_letters*2);
+
+  //if r is in [0, 10) then return a random digit
+  if(r < num_digits)
+    return r + '0'; 
+
+  //if r is in [10, 36) then return a random upcase letter
+  else if(r < num_digits + num_letters)
+    return r - num_digits + 'A'; //convert int from [0, 26) then cast to ASCII
+  
+  //if r is in [36, 62) then return a random lowercase letter
+  else 
+    return r - num_letters - num_digits + 'a'; //convert int from [0, 26) then cast to ASCII
+  
+
+  return '\0'; // in case of error
+}
+
+/** Works like get_any_alphanumeric() but with type can get more specific
+ *  characters. Needed to make a random name.
  *  1. If type is 0, return any ascii character [A-Z, a-z, 0-9].
  *  2. If type is 1, return an upper case character [A-Z]
  *  3. If type is 2, return a lower case character [a-z]
@@ -202,43 +232,23 @@ char *mystrndup(const char *s, size_t n){
  * @warning Make sure time seed generator is initialized once before using
  *  this function.
  * */
-char  get_random_char(int type){
+char  get_alphanum(int type){
   const int num_digits = 10; //prevent using magic numbers
   const int num_letters = 26; //prevent using magic numbers
-  const int start_0 = 48; //ascii code of '0'
-  const int start_A = 65;  //ascii code of 'A'
-  const int start_a = 97;  //ascii code of 'a'
 
-  //if user wants any ascii character in range [A-Z, a-z, 0-9]
-  if(type == 0){
-    // generate a random number from [0, 62) 
-    int r = rand() % (num_digits + num_letters*2);
-    //if r is in [0, 10) then return a random digit
-    if(r < num_digits){
-      return r + start_0;
-    }
-    //if r is in [10, 36) then return a random upcase letter
-    else if(r < num_digits + num_letters){
-      //convert int from [0, 26) then cast to ASCII
-      return r - num_digits + start_A; 
-    }
-    //if r is in [36, 62) then return a random lowercase letter
-    else {
-      //convert int from [0, 26) then cast to ASCII
-      return r - num_letters - num_digits + start_a;
-    }
-  }
-  //else if user wants any ascii character in range [A-Z]
-  else if(type == 1){
-    return rand() % num_letters + start_A;
-  }
-  //else if user wants any ascii character in range [a-z]
-  else if(type == 2){
-    return rand() % num_letters + start_a;
-  }
-   //else if user wants any ascii character in range [0-9]
-  else if(type == 3){
-    return rand() % num_digits + start_0;
+  switch(type){
+    case 0:
+      return get_any_alphanumeric(); //use previous function
+      break;
+    case 1:
+      return rand() % num_letters + 'A';
+      break;
+    case 2:
+      return rand() % num_letters + 'a';
+      break;
+    case 3:
+      return rand() % num_digits + '0';
+      break; 
   }
 
   // if type not in [0,3] then return null char
@@ -246,37 +256,43 @@ char  get_random_char(int type){
 }
 
 
-/** This function uses `get_random_char()` to generate a random name
- *  of min length 5 and max length 22 for the student struct.
+/** This function uses `get_alphanum()` to generate a random name
+ *  of min length 5 and max length `n` for the student struct. This 
+ *  function will null terminate og_name regardless of length of name.
  *  @param og_name this is the destination string pointer
  *  @param max_chars maximum size of og_name pointer
+ *  @return pointer to source string `og_name`
  * */
 char* generate_random_name(char * og_name, int max_chars){
   const int min = 3; //min length of f_name and l_name
-  const int max = 10; //max length of f_name and l_name
-  const int f_name_size = rand() % (max - min + 1)+ min; //[3,10]
-  const int l_name_size = rand() % (max - min + 1)+ min; //[3,10]
+  const int max = 13; //max length of f_name and l_name
+  const int f_name_size = rand() % (max - min + 1)+ min; //[3,13]
+  const int l_name_size = rand() % (max - min + 1)+ min; //[3,13]
   const int name_size = f_name_size + l_name_size + 2;
   //allocates space for f_name, space, l_name , & '\0'
 
-  char* name =  (char*) malloc(name_size); //creates temp pointer
+  char* name =  (char*) malloc(max_chars); //creates temp pointer
   
   int i; //counter for loop below
 
   //this loops through name pointer and adds f_name, ' ', & l_name
-  // based on current index
-  for(i = 0; i < name_size - 1; i++ ){
+  // based on current index until it hits max_chars
+  for(i = 0; i < max_chars; i++ ){
     if(i == f_name_size)
       name[i] = ' ';
     else if(i == 0 || i == f_name_size + 1)
-      name[i] = get_random_char(1); //get random upper case char
-    else
-      name[i] = get_random_char(2); //get random lower case char
+      name[i] = get_alphanum(1); //get random upper case char
+    else if(i < name_size - 1)
+      name[i] = get_alphanum(2); //get random lower case char
+    else { //break if name_size <= i < max_chars 
+      name[i] = '\0';
+      break;
+    }
   }
 
-  name[i] = '\0'; //terminate string with null characters
-
   mystrncpy(og_name, name, max_chars); //copies at most max_chars to og_name
+  og_name[max_chars - 1] = '\0'; //null terminate if name is too long
+
   free(name); //since name was temporary it frees it from memory
 
   return og_name;

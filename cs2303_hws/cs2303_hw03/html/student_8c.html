@@ -49,9 +49,9 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="mystring_8h_source.html">mystring.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="student_8h_source.html">student.h</a>&quot;</code><br />
-<code>#include &lt;time.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
@@ -61,8 +61,10 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:abdc276a3da6aba2279ae3e4a69731d9f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="student_8c.html#abdc276a3da6aba2279ae3e4a69731d9f">MAX_NAME_SIZE</a>&#160;&#160;&#160;(30)</td></tr>
+<tr class="memitem:abdc276a3da6aba2279ae3e4a69731d9f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="student_8c.html#abdc276a3da6aba2279ae3e4a69731d9f">MAX_NAME_SIZE</a>&#160;&#160;&#160;(20)</td></tr>
 <tr class="separator:abdc276a3da6aba2279ae3e4a69731d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa61c1fbd8e92c997114976c05f288c1a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="student_8c.html#aa61c1fbd8e92c997114976c05f288c1a">HORZ_BAR</a>&#160;&#160;&#160;(&quot;―――――――――――――――――――――――――――――――――――――――\n&quot;)</td></tr>
+<tr class="separator:aa61c1fbd8e92c997114976c05f288c1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -77,8 +79,8 @@ Functions</h2></td></tr>
 <tr class="separator:acee965d32595d76896dfdb88458be113"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc7252850be407bbf7f9ea13f1ff6fd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structStudent.html">Student</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="student_8c.html#acc7252850be407bbf7f9ea13f1ff6fd2">make_random_student</a> ()</td></tr>
 <tr class="separator:acc7252850be407bbf7f9ea13f1ff6fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59573c1a176c560769308d1c93b57a07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structStudent.html">Student</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="student_8c.html#a59573c1a176c560769308d1c93b57a07">make_students</a> (int num_students)</td></tr>
-<tr class="separator:a59573c1a176c560769308d1c93b57a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f35a5b1bb602f32896f5fed32cdff51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structStudent.html">Student</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="student_8c.html#a2f35a5b1bb602f32896f5fed32cdff51">make_random_structs</a> (int num_students)</td></tr>
+<tr class="separator:a2f35a5b1bb602f32896f5fed32cdff51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24ef04ec94520d92eb33bbbbe6a9f496"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="student_8c.html#a24ef04ec94520d92eb33bbbbe6a9f496">print_students</a> (<a class="el" href="structStudent.html">Student</a> **st, int num)</td></tr>
 <tr class="separator:a24ef04ec94520d92eb33bbbbe6a9f496"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a9aeb9f979d233e97a1572aebcb4cc8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structStudent.html">Student</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="student_8c.html#a9a9aeb9f979d233e97a1572aebcb4cc8">make_shallow_copy</a> (<a class="el" href="structStudent.html">Student</a> **og_st, int size)</td></tr>
@@ -87,10 +89,22 @@ Functions</h2></td></tr>
 <tr class="separator:a7a003ac3d49c9cb34f9b17313dc43467"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86ed61c2985b2b804d654c2c16087f22"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structStudent.html">Student</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="student_8c.html#a86ed61c2985b2b804d654c2c16087f22">make_deep_copy</a> (<a class="el" href="structStudent.html">Student</a> **og_st, int size)</td></tr>
 <tr class="separator:a86ed61c2985b2b804d654c2c16087f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="student_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
-<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="aa61c1fbd8e92c997114976c05f288c1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa61c1fbd8e92c997114976c05f288c1a">&#9670;&nbsp;</a></span>HORZ_BAR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HORZ_BAR&#160;&#160;&#160;(&quot;―――――――――――――――――――――――――――――――――――――――\n&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="abdc276a3da6aba2279ae3e4a69731d9f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abdc276a3da6aba2279ae3e4a69731d9f">&#9670;&nbsp;</a></span>MAX_NAME_SIZE</h2>
 
@@ -98,7 +112,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MAX_NAME_SIZE&#160;&#160;&#160;(30)</td>
+          <td class="memname">#define MAX_NAME_SIZE&#160;&#160;&#160;(20)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -147,27 +161,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Free all Structs in an array from the heap and set pointer to NULL </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">st</td><td>array of <a class="el" href="structStudent.html" title="This structure represents a student object in school.">Student</a> structs @size size number of structs in st </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>By setting pointers to null <em>after</em> struct has been deallocated, it deletes memory addresses in original student struct. However if a shallow_copy was created, it won't delete those pointers from memory. User must keep this in mind. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="student_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
-
-</div>
-</div>
-<a id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&nbsp;</a></span>main()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int main </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="reference">References <a class="el" href="student_8c.html#a7a003ac3d49c9cb34f9b17313dc43467">free_students()</a>, <a class="el" href="student_8c.html#a86ed61c2985b2b804d654c2c16087f22">make_deep_copy()</a>, <a class="el" href="student_8c.html#a9a9aeb9f979d233e97a1572aebcb4cc8">make_shallow_copy()</a>, <a class="el" href="student_8c.html#a59573c1a176c560769308d1c93b57a07">make_students()</a>, and <a class="el" href="student_8c.html#a24ef04ec94520d92eb33bbbbe6a9f496">print_students()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="student__test_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>
@@ -196,10 +198,48 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Return the deepest possible copy of <a class="el" href="structStudent.html" title="This structure represents a student object in school.">Student</a> struct collection by allocating memory for copies of <a class="el" href="structStudent.html" title="This structure represents a student object in school.">Student</a> structs and copying in struct members. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">og_st</td><td>array of <a class="el" href="structStudent.html" title="This structure represents a student object in school.">Student</a> structs @size size number of structs in st </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>pointer to deepest copy of og_st </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>This method should be null safe for structs only. May result in an error if pointers in struct members are null. </dd></dl>
 
-<p class="reference">References <a class="el" href="structStudent.html#a552a431a43ffc545d180424597d51f97">Student::age</a>, <a class="el" href="structStudent.html#ad87196a7500cae94e5ed747770fd824b">Student::gpa</a>, <a class="el" href="student_8c.html#a3096e80ef2cfc032aaf4cd6ec2f6fb9e">make_student()</a>, and <a class="el" href="structStudent.html#ae33bf8015674d20e355ab6aadec12009">Student::name</a>.</p>
+<p class="reference">References <a class="el" href="student_8c.html#a3096e80ef2cfc032aaf4cd6ec2f6fb9e">make_student()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="student_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="student__test_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+
+</div>
+</div>
+<a id="a2f35a5b1bb602f32896f5fed32cdff51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f35a5b1bb602f32896f5fed32cdff51">&#9670;&nbsp;</a></span>make_random_structs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structStudent.html">Student</a>** make_random_structs </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num_students</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function returns an array of pointers to random student structs. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num_students</td><td>number of students to be stored in array </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array of student pointers </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>this function will return null if there isn't enough space in memory for specified student collection </dd></dl>
+
+<p class="reference">References <a class="el" href="student_8c.html#acc7252850be407bbf7f9ea13f1ff6fd2">make_random_student()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="student__test_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>
@@ -219,9 +259,9 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Use <code><a class="el" href="student_8c.html#a3096e80ef2cfc032aaf4cd6ec2f6fb9e">make_student()</a></code> with random values to make random student struct </p><dl class="section return"><dt>Returns</dt><dd>pointer to random <a class="el" href="structStudent.html" title="This structure represents a student object in school.">Student</a> struct </dd></dl>
 
-<p class="reference">References <a class="el" href="structStudent.html#a552a431a43ffc545d180424597d51f97">Student::age</a>, <a class="el" href="mystring_8c.html#a882080f191fe71a99545d62a71c17349">generate_random_name()</a>, <a class="el" href="structStudent.html#ad87196a7500cae94e5ed747770fd824b">Student::gpa</a>, <a class="el" href="student_8c.html#a3096e80ef2cfc032aaf4cd6ec2f6fb9e">make_student()</a>, <a class="el" href="student_8c.html#abdc276a3da6aba2279ae3e4a69731d9f">MAX_NAME_SIZE</a>, and <a class="el" href="structStudent.html#ae33bf8015674d20e355ab6aadec12009">Student::name</a>.</p>
+<p class="reference">References <a class="el" href="mystring_8c.html#a882080f191fe71a99545d62a71c17349">generate_random_name()</a>, <a class="el" href="student_8c.html#a3096e80ef2cfc032aaf4cd6ec2f6fb9e">make_student()</a>, and <a class="el" href="student_8c.html#abdc276a3da6aba2279ae3e4a69731d9f">MAX_NAME_SIZE</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="student_8c.html#a59573c1a176c560769308d1c93b57a07">make_students()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="student_8c.html#a2f35a5b1bb602f32896f5fed32cdff51">make_random_structs()</a>.</p>
 
 </div>
 </div>
@@ -250,8 +290,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Given an array of <a class="el" href="structStudent.html" title="This structure represents a student object in school.">Student</a> structs, return a shallow copy with an array of pointers </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">og_st</td><td>array of <a class="el" href="structStudent.html" title="This structure represents a student object in school.">Student</a> structs </td></tr>
+    <tr><td class="paramname">size</td><td>number of structs in og_st </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array of <a class="el" href="structStudent.html" title="This structure represents a student object in school.">Student</a> struct pointers </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>If there isn't enough space in memory, this function returns a NULL pointer. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="student_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="student__test_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>
@@ -301,41 +350,12 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section warning"><dt>Warning</dt><dd>If there is no space in memory, this method will return a null pointer. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>pointer to new <a class="el" href="structStudent.html" title="This structure represents a student object in school.">Student</a> struct </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>If there is no space in memory, this method will return a null pointer. Also, it is the user's responsibility to make sure name is null-terminated. </dd></dl>
 
 <p class="reference">References <a class="el" href="structStudent.html#a552a431a43ffc545d180424597d51f97">Student::age</a>, <a class="el" href="structStudent.html#ad87196a7500cae94e5ed747770fd824b">Student::gpa</a>, <a class="el" href="structStudent.html#a1351fb239711a78a8b115d75597b5df0">Student::id</a>, <a class="el" href="student_8c.html#abdc276a3da6aba2279ae3e4a69731d9f">MAX_NAME_SIZE</a>, <a class="el" href="mystring_8c.html#a86b7a78bb3914b2c6e6022b482c4a534">mystrncpy()</a>, and <a class="el" href="structStudent.html#ae33bf8015674d20e355ab6aadec12009">Student::name</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="student_8c.html#a86ed61c2985b2b804d654c2c16087f22">make_deep_copy()</a>, and <a class="el" href="student_8c.html#acc7252850be407bbf7f9ea13f1ff6fd2">make_random_student()</a>.</p>
-
-</div>
-</div>
-<a id="a59573c1a176c560769308d1c93b57a07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59573c1a176c560769308d1c93b57a07">&#9670;&nbsp;</a></span>make_students()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structStudent.html">Student</a>** make_students </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num_students</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function returns an array of pointers to random student structs. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">num_students</td><td>number of students to be stored in array </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>array of student pointers </dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>this function will return null if there isn't enough space in memory for specified student collection </dd></dl>
-
-<p class="reference">References <a class="el" href="student_8c.html#acc7252850be407bbf7f9ea13f1ff6fd2">make_random_student()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="student_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="student__test_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, <a class="el" href="student_8c.html#a86ed61c2985b2b804d654c2c16087f22">make_deep_copy()</a>, and <a class="el" href="student_8c.html#acc7252850be407bbf7f9ea13f1ff6fd2">make_random_student()</a>.</p>
 
 </div>
 </div>
@@ -354,16 +374,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Prints student struct with formatting </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Prints fields of student struct with formatting </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">st</td><td>pointer to <a class="el" href="structStudent.html" title="This structure represents a student object in school.">Student</a> struct </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section warning"><dt>Warning</dt><dd><a class="el" href="structStudent.html" title="This structure represents a student object in school.">Student</a> pointer cannot be null! </dd></dl>
 
-<p class="reference">References <a class="el" href="structStudent.html#a552a431a43ffc545d180424597d51f97">Student::age</a>, <a class="el" href="structStudent.html#ad87196a7500cae94e5ed747770fd824b">Student::gpa</a>, <a class="el" href="structStudent.html#a1351fb239711a78a8b115d75597b5df0">Student::id</a>, and <a class="el" href="structStudent.html#ae33bf8015674d20e355ab6aadec12009">Student::name</a>.</p>
+<p class="reference">References <a class="el" href="structStudent.html#a552a431a43ffc545d180424597d51f97">Student::age</a>, <a class="el" href="structStudent.html#ad87196a7500cae94e5ed747770fd824b">Student::gpa</a>, <a class="el" href="student_8c.html#aa61c1fbd8e92c997114976c05f288c1a">HORZ_BAR</a>, <a class="el" href="structStudent.html#a1351fb239711a78a8b115d75597b5df0">Student::id</a>, and <a class="el" href="structStudent.html#ae33bf8015674d20e355ab6aadec12009">Student::name</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="student_8c.html#a24ef04ec94520d92eb33bbbbe6a9f496">print_students()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="student__test_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, and <a class="el" href="student_8c.html#a24ef04ec94520d92eb33bbbbe6a9f496">print_students()</a>.</p>
 
 </div>
 </div>
@@ -401,9 +422,9 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>If you pass in a null pointer, this function will catch it but it will NOT stop the program. </dd></dl>
 
-<p class="reference">References <a class="el" href="student_8c.html#acee965d32595d76896dfdb88458be113">print_student()</a>.</p>
+<p class="reference">References <a class="el" href="student_8c.html#aa61c1fbd8e92c997114976c05f288c1a">HORZ_BAR</a>, and <a class="el" href="student_8c.html#acee965d32595d76896dfdb88458be113">print_student()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="student_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="student__test_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>
