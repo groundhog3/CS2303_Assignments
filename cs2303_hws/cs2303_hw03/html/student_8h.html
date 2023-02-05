@@ -57,6 +57,8 @@ Typedefs</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a3096e80ef2cfc032aaf4cd6ec2f6fb9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structStudent.html">Student</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="student_8h.html#a3096e80ef2cfc032aaf4cd6ec2f6fb9e">make_student</a> (char *name, int age, int id, double gpa)</td></tr>
 <tr class="separator:a3096e80ef2cfc032aaf4cd6ec2f6fb9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc7252850be407bbf7f9ea13f1ff6fd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structStudent.html">Student</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="student_8h.html#acc7252850be407bbf7f9ea13f1ff6fd2">make_random_student</a> ()</td></tr>
+<tr class="separator:acc7252850be407bbf7f9ea13f1ff6fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acee965d32595d76896dfdb88458be113"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="student_8h.html#acee965d32595d76896dfdb88458be113">print_student</a> (<a class="el" href="structStudent.html">Student</a> *st)</td></tr>
 <tr class="separator:acee965d32595d76896dfdb88458be113"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24ef04ec94520d92eb33bbbbe6a9f496"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="student_8h.html#a24ef04ec94520d92eb33bbbbe6a9f496">print_students</a> (<a class="el" href="structStudent.html">Student</a> **st, int num)</td></tr>
@@ -82,7 +84,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="el" href="student_8h.html">student.h</a> </p><dl class="section author"><dt>Author</dt><dd>Ryan Mechery, Mike Ciaraldi, Blake Nelson Header file for functions in <a class="el" href="student_8c.html">student.c</a> file Note: not all functions are included here. Only ones relevant to the tester are included. </dd></dl>
+<p><a class="el" href="student_8h.html">student.h</a> </p><dl class="section author"><dt>Author</dt><dd>Ryan Mechery Header file for functions in <a class="el" href="student_8c.html">student.c</a> file </dd></dl>
 
 </div>
 </div>
@@ -191,6 +193,28 @@ Functions</h2></td></tr>
 <p class="reference">References <a class="el" href="student_8c.html#acc7252850be407bbf7f9ea13f1ff6fd2">make_random_student()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="student__test_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+
+</div>
+</div>
+<a id="acc7252850be407bbf7f9ea13f1ff6fd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc7252850be407bbf7f9ea13f1ff6fd2">&#9670;&nbsp;</a></span>make_random_student()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structStudent.html">Student</a>* make_random_student </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Use <code><a class="el" href="student_8c.html#a3096e80ef2cfc032aaf4cd6ec2f6fb9e">make_student()</a></code> with random values to make random student struct </p><dl class="section return"><dt>Returns</dt><dd>pointer to random <a class="el" href="structStudent.html" title="This structure represents a student object in school.">Student</a> struct </dd></dl>
+
+<p class="reference">References <a class="el" href="mystring_8c.html#a882080f191fe71a99545d62a71c17349">generate_random_name()</a>, <a class="el" href="student_8c.html#a3096e80ef2cfc032aaf4cd6ec2f6fb9e">make_student()</a>, and <a class="el" href="student_8c.html#abdc276a3da6aba2279ae3e4a69731d9f">MAX_NAME_SIZE</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="student_8c.html#a2f35a5b1bb602f32896f5fed32cdff51">make_random_structs()</a>.</p>
 
 </div>
 </div>

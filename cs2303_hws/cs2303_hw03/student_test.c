@@ -11,7 +11,7 @@ typedef struct Student Student;
 
 int main(int argc, char *argv[]){
 	int wpi_size; //size of school
-	if(argc == 2 && atoi(argv[1]) != 0){
+	if(argc == 2 && atoi(argv[1]) > 0){
 		wpi_size = atoi(argv[1]);
 	}
 	else {
