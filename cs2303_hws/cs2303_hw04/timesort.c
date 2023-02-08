@@ -10,7 +10,7 @@
  * @return 0 if success, 1 if error (wrong number of arguments)
  */
 
-void timesort (int a[], int count) {
+void timesort (int a[], int count, int sort_type) {
 
   struct timeval start_time; // time stamps for start and end of sorting
   struct timeval end_time;
@@ -20,7 +20,20 @@ void timesort (int a[], int count) {
   print_int_array(a, count);
 
   gettimeofday(&start_time, NULL); // Get timestamp
-  sort_descending(a, count);
+  
+  switch(sort_type){
+    case 0:
+      sort_descending(a, count);
+      break;
+    case 1:
+      alt_sort_descending(a, count);
+      break;
+    default:
+      printf("Error in timesort.c: Not a valid sort type");
+      return;
+      break;
+  }
+
   gettimeofday(&end_time, NULL); // Get timestamp
 
   printf("Sorted array (descending order):\n");

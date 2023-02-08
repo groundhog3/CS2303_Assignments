@@ -54,12 +54,130 @@ Functions</h2></td></tr>
 <tr class="separator:ae7021e6d0e6a37b7848d1129b28c6da6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54dc9d450cf1940b8157dda575325739"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sort_8c.html#a54dc9d450cf1940b8157dda575325739">sort_descending</a> (int nums[], int count)</td></tr>
 <tr class="separator:a54dc9d450cf1940b8157dda575325739"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a136e19ab94d03c78254464fe481c63c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sort_8c.html#a136e19ab94d03c78254464fe481c63c9">alt_sort_descending</a> (int nums[], int count)</td></tr>
+<tr class="separator:a136e19ab94d03c78254464fe481c63c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad89e0aceb396e10efb42fd9cd9273300"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sort_8c.html#ad89e0aceb396e10efb42fd9cd9273300">print_timeval</a> (struct timeval t)</td></tr>
 <tr class="separator:ad89e0aceb396e10efb42fd9cd9273300"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4eae731fab4bd1fa233cd8b6506fcb9e"><td class="memItemLeft" align="right" valign="top">struct timeval&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sort_8c.html#a4eae731fab4bd1fa233cd8b6506fcb9e">timediff</a> (struct timeval time1, struct timeval time2)</td></tr>
 <tr class="separator:a4eae731fab4bd1fa233cd8b6506fcb9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41a0d3a6432a1af4b043b7d2c8c2eaac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sort_8c.html#a41a0d3a6432a1af4b043b7d2c8c2eaac">get_random</a> (int max)</td></tr>
+<tr class="separator:a41a0d3a6432a1af4b043b7d2c8c2eaac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf147a9833509d157c4a9ae06fee1bc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sort_8c.html#abf147a9833509d157c4a9ae06fee1bc6">fill_random</a> (int arr[], int size, int max)</td></tr>
+<tr class="separator:abf147a9833509d157c4a9ae06fee1bc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a136e19ab94d03c78254464fe481c63c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a136e19ab94d03c78254464fe481c63c9">&#9670;&nbsp;</a></span>alt_sort_descending()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void alt_sort_descending </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nums</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of integers into descending order. Uses the bubble sort algorithm w/pointers.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nums</td><td>Array to print </td></tr>
+    <tr><td class="paramname">count</td><td>Number of elements to print </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">Referenced by <a class="el" href="sort_8h.html#ab8b08c9542653eb9e80e7a8634aa961b">timesort()</a>.</p>
+
+</div>
+</div>
+<a id="abf147a9833509d157c4a9ae06fee1bc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf147a9833509d157c4a9ae06fee1bc6">&#9670;&nbsp;</a></span>fill_random()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fill_random </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>arr</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>max</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>function that uses <a class="el" href="sort_8c.html#a41a0d3a6432a1af4b043b7d2c8c2eaac">get_random()</a> to populate arr with random integers </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arr</td><td>array to be populated </td></tr>
+    <tr><td class="paramname">size</td><td>size of arr array </td></tr>
+    <tr><td class="paramname">max</td><td>max number in range <u>inclusive</u> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">References <a class="el" href="sort_8c.html#a41a0d3a6432a1af4b043b7d2c8c2eaac">get_random()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="sorttest2_8c.html#ac0f2228420376f4db7e1274f2b41667c">main()</a>.</p>
+
+</div>
+</div>
+<a id="a41a0d3a6432a1af4b043b7d2c8c2eaac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41a0d3a6432a1af4b043b7d2c8c2eaac">&#9670;&nbsp;</a></span>get_random()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int get_random </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>max</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>function returns a (pseudo) random integer from zero to max, <u>inclusive</u> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">max</td><td>max number in range <u>inclusive</u> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>random integer from [0, max] </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Initialize seed generator BEFORE using this function </dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="sort_8c.html#abf147a9833509d157c4a9ae06fee1bc6">fill_random()</a>.</p>
+
+</div>
+</div>
 <a id="ae7021e6d0e6a37b7848d1129b28c6da6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae7021e6d0e6a37b7848d1129b28c6da6">&#9670;&nbsp;</a></span>print_int_array()</h2>
 
@@ -93,7 +211,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="reference">Referenced by <a class="el" href="sort_8h.html#abf9415985fd9b0389a65238baf88ff73">timesort()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="sort_8h.html#ab8b08c9542653eb9e80e7a8634aa961b">timesort()</a>.</p>
 
 </div>
 </div>
@@ -119,7 +237,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="reference">Referenced by <a class="el" href="sort_8h.html#abf9415985fd9b0389a65238baf88ff73">timesort()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="sort_8h.html#ab8b08c9542653eb9e80e7a8634aa961b">timesort()</a>.</p>
 
 </div>
 </div>
@@ -157,7 +275,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="reference">Referenced by <a class="el" href="sort_8h.html#abf9415985fd9b0389a65238baf88ff73">timesort()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="sort_8h.html#ab8b08c9542653eb9e80e7a8634aa961b">timesort()</a>.</p>
 
 </div>
 </div>
@@ -195,7 +313,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A timeval struct representing time2 - time1 </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="sort_8h.html#abf9415985fd9b0389a65238baf88ff73">timesort()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="sort_8h.html#ab8b08c9542653eb9e80e7a8634aa961b">timesort()</a>.</p>
 
 </div>
 </div>
