@@ -1,3 +1,7 @@
+/** sorttest2.c
+ * @author Ryan Mechery
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "sort.h"

@@ -1,11 +1,18 @@
+/** sort.h
+ * @author Ryan Mechery
+ * This file lists an enum and function prototypes for sort.c
+ * */
+
 #ifndef SORT_H
 #define SORT_H
 
 // data structures
 
+/** An enum for the type of sort functions available.
+ */
 enum sort_functions{
-	SORT_DESCENDING,
-	ALT_SORT_DESCENDING
+	SORT_DESCENDING,  /**< default bubble sort using indexes */
+	ALT_SORT_DESCENDING /**< optimized bubble sort using pointers */
 };
 
 // Function prototypes:

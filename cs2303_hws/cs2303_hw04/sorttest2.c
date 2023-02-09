@@ -1,3 +1,7 @@
+/** sorttest2.c
+ * @author Ryan Mechery
+ * */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "sort.h"
@@ -9,10 +13,10 @@
  * sorts them in descending order, and outputs the sorted list.
  *
  * Usage:
- *         ./sorttest some_number some_number
+ *         ./sorttest some_number string
  * Example:
- *         ./sorttest 3 some_number
- *
+ *         ./sorttest 3 sort_descending
+ *         ./sorttest 10 alt_sort_descending
  */
 
 /** Main program
@@ -21,7 +25,7 @@
  * @return 0 if success, 1 if error (wrong number of arguments)
  */
 
-#define MAX_RANDOM (10000)
+#define MAX_RANDOM (10)
 
 int main (int argc, const char* argv[]) {
   // Check that there are exactly two numbers
@@ -39,12 +43,15 @@ int main (int argc, const char* argv[]) {
 
   size = atoi(argv[1]);
 
+  //if third argument matches valid enum type, set it that way
+  // or return an error
   if(strcmp(argv[2], "sort_descending") == 0)
     sort_type = SORT_DESCENDING;
   else if(strcmp(argv[2], "alt_sort_descending") == 0)
     sort_type = ALT_SORT_DESCENDING;
   else{
     printf("\"%s\" is not a valid sort type!\n", argv[2]);
+    printf("Only \"sort_descending\" and \"alt_sort_descending\" are allowed.\n");
     return 1;
   }
 
@@ -55,7 +62,7 @@ int main (int argc, const char* argv[]) {
     return 1;
   }
 
-  /* Read all the numbers from the command line and put them into the array */
+  /* Generate random ints and put them into nums array */
   fill_random(nums, size, MAX_RANDOM);
 
   // Now print, sort, and print the array, and time how long the sorting took.

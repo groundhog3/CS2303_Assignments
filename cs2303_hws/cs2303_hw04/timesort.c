@@ -1,3 +1,6 @@
+/** timesort.c
+ * @author Ryan Mechery
+ * */
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/time.h>
@@ -21,6 +24,8 @@ void timesort (int a[], int count, int sort_type) {
 
   gettimeofday(&start_time, NULL); // Get timestamp
   
+  //sort_type uses enum based on ints. if other value
+  // only error will be printed.
   switch(sort_type){
     case 0:
       sort_descending(a, count);
@@ -30,7 +35,7 @@ void timesort (int a[], int count, int sort_type) {
       break;
     default:
       printf("Error in timesort.c: Not a valid sort type");
-      return;
+      return; //stop program
       break;
   }
 

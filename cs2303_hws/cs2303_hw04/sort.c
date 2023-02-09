@@ -1,3 +1,9 @@
+/** sort.c
+ * @author Ryan Mechery
+ * This file lists implementation for sort funcs and related printing funcs
+ * defined in sort.h
+ * */
+
 #include <stdio.h>
 #include <sys/time.h>
 #include "sort.h"
@@ -59,7 +65,7 @@ void alt_sort_descending(int nums[], int count) {
   int i;         // Loop counter for the inner loop
   int inorder;   // Used as a boolean (logical). 1 = array is in correct order.
   int temp;      // Temporary variable used while swapping array elements
-  int* ptr;      // pointer used to increment through
+  int* ptr;
 
   inorder = 0;   // Assume not sorted at the beginning
 
@@ -67,17 +73,17 @@ void alt_sort_descending(int nums[], int count) {
   // Terminate early if array is in correct order.
   for(round = count - 1; (round > 0) && (!inorder); round--) {
     inorder = 1;  // Assume in correct order, until found otherwise.
-    ptr = &nums[0];
+
     // Repeat inner loop, testing array elements 0 through round
     // Compare two adjacent elements of the array and swap if wrong order
-    for (i; i < round; i++) {
+    for (i = 0; i < round; i++) {
+      ptr = &nums[0];
       if (*ptr < *(ptr+1)) {
         inorder = 0;      // At least one pair had to be swapped
-        temp = *ptr;
+        temp = *(ptr+1);
         *ptr = *(ptr+1);
-        *(ptr+1) = temp;
+        *(++ptr+1) = temp;
       }
-      ptr++;
     }
   }
 }
@@ -99,16 +105,19 @@ void print_timeval(struct timeval t) {
 struct timeval timediff(struct timeval time1, struct timeval time2) {
   struct timeval diff;
 
-  //1003 610   1004 1510
+  //to substract evenly, just substract one second 
+  // from time2's second member and add it to the micros. member
   while(time1.tv_usec > time2.tv_usec){
     time2.tv_sec--;
     time2.tv_usec += 1000000;
   }
 
+  //now that there won't be a buffer overflow
+  //second and microsecond can safely be subtracted
   diff.tv_sec =  time2.tv_sec  - time1.tv_sec;
   diff.tv_usec = time2.tv_usec - time1.tv_usec;
 
-  return diff;
+  return diff; //return struct
 }
 
 /** function returns a (pseudo) random integer from zero to 
