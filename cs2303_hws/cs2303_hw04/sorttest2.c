@@ -25,7 +25,7 @@
  * @return 0 if success, 1 if error (wrong number of arguments)
  */
 
-#define MAX_RANDOM (10)
+#define MAX_RANDOM (100)
 
 int main (int argc, const char* argv[]) {
   // Check that there are exactly two numbers
