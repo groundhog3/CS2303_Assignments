@@ -1,8 +1,9 @@
 # CS2303_HW04
+Author: Ryan Mechery
 
 For this assignment, 2 programs were created.
-1. sorttest – This program takes in numbers from the command line, puts them into an array, sorts them, and prints out time taken to sort.
-2. sorttest2 – This program does much of the same as sorrtest except it uses randomly generated values and lets user select sorting function.
+1. sorttest – This program takes in numbers from the command line, puts them into an array, sorts them, and prints out time taken to sort.
+2. sorttest2 – This program does much of the same as sorrtest except it uses randomly generated values and lets user select sorting function.
 
 ## Compilation
 To compile the program, open the directory into any unix environment and enter make to compile all the source files.
@@ -60,9 +61,9 @@ Sorted array (descending order):
 2
 1
 0
-Timestamp before sorting: Seconds 1675917181,	Microseconds:515155
-Timestamp after sorting: Seconds 1675917181,	Microseconds:515155
-Time spent sorting: Seconds 0,	Microseconds:0
+Timestamp before sorting: Seconds 1675917181,   Microseconds:515155
+Timestamp after sorting: Seconds 1675917181,    Microseconds:515155
+Time spent sorting: Seconds 0,  Microseconds:0
 ```
 
 
@@ -70,18 +71,18 @@ Test #1a: Random Range [0,10]
 ```sh
 $ ./sorttest2 5000 sort_descending
 (list of numbers) ...
-Timestamp before sorting: Seconds 1675916377,	Microseconds:866438
-Timestamp after sorting: Seconds 1675916377,	Microseconds:918095
-Time spent sorting: Seconds 0,	Microseconds:51657
+Timestamp before sorting: Seconds 1675916377,   Microseconds:866438
+Timestamp after sorting: Seconds 1675916377,    Microseconds:918095
+Time spent sorting: Seconds 0,  Microseconds:51657
 ```
 
 Test #1b: Random Range [0,10]
 ```sh
 $ ./sorttest2 5000 alt_sort_descending
 (list of numbers) ...
-Timestamp before sorting: Seconds 1675916533,	Microseconds:404869
-Timestamp after sorting: Seconds 1675916533,	Microseconds:404922
-Time spent sorting: Seconds 0,	Microseconds:53
+Timestamp before sorting: Seconds 1675916533,   Microseconds:404869
+Timestamp after sorting: Seconds 1675916533,    Microseconds:404922
+Time spent sorting: Seconds 0,  Microseconds:53
 ```
 Running test one shows that alt_sort is 974 times faster than running the regular bubble sort.
 
@@ -89,21 +90,23 @@ Test #2a: Random Range [0,100]
 ```sh
 $ ./sorttest2 10000 sort_descending
 (list of numbers) ...
-Timestamp before sorting: Seconds 1675916906,	Microseconds:382870
-Timestamp after sorting: Seconds 1675916906,	Microseconds:544238
-Time spent sorting: Seconds 0,	Microseconds:161368
+Timestamp before sorting: Seconds 1675916906,   Microseconds:382870
+Timestamp after sorting: Seconds 1675916906,    Microseconds:544238
+Time spent sorting: Seconds 0,  Microseconds:161368
 ```
 
 Test #2b: Random Range [0,100]
 ```sh
 $ ./sorttest2 10000 alt_sort_descending
 (list of numbers) ...
-Timestamp before sorting: Seconds 1675916972,	Microseconds:242782
-Timestamp after sorting: Seconds 1675916972,	Microseconds:242860
-Time spent sorting: Seconds 0,	Microseconds:78
+Timestamp before sorting: Seconds 1675916972,   Microseconds:242782
+Timestamp after sorting: Seconds 1675916972,    Microseconds:242860
+Time spent sorting: Seconds 0,  Microseconds:78
 ```
-Running this test again with a different max and more numbers shows that optimized sort is 2068 times faster.
+Running this test again with a different max and more numbers shows that the optimized sort is 2068 times faster.
 
+My reasoning for this is that the time cost of accessing array elements with an index multiplies in an O(n^2) method such as bubble sort.
+Allowing the computer act more closely as a Turing computer with just one pointer prevents the computer from calculating unnecessarily calculations to swap faster.
 
 Test #3: Invalid `sort_type`
 ```sh
@@ -111,6 +114,5 @@ $ ./sorttest2 10 new_sort
 "new_sort" is not a valid sort type!
 Only "sort_descending" and "alt_sort_descending" are allowed.
 ```
-
 
 
