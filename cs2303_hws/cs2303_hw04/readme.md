@@ -71,39 +71,39 @@ Test #1a: Random Range [0,10]
 ```sh
 $ ./sorttest2 5000 sort_descending
 (list of numbers) ...
-Timestamp before sorting: Seconds 1675916377,   Microseconds:866438
-Timestamp after sorting: Seconds 1675916377,    Microseconds:918095
-Time spent sorting: Seconds 0,  Microseconds:51657
+Timestamp before sorting: Seconds 1676122056,   Microseconds:14497
+Timestamp after sorting: Seconds 1676122056,    Microseconds:54418
+Time spent sorting: Seconds 0,  Microseconds:39921
 ```
 
 Test #1b: Random Range [0,10]
 ```sh
 $ ./sorttest2 5000 alt_sort_descending
 (list of numbers) ...
-Timestamp before sorting: Seconds 1675916533,   Microseconds:404869
-Timestamp after sorting: Seconds 1675916533,    Microseconds:404922
-Time spent sorting: Seconds 0,  Microseconds:53
+Timestamp before sorting: Seconds 1676122081,   Microseconds:195648
+Timestamp after sorting: Seconds 1676122081,    Microseconds:196743
+Time spent sorting: Seconds 0,  Microseconds:1095
 ```
-Running test one shows that alt_sort is 974 times faster than running the regular bubble sort.
+Running test one shows that alt_sort is 36 times faster than running the regular bubble sort.
 
-Test #2a: Random Range [0,100]
+Test #2a: Random Range [0,1000]
 ```sh
 $ ./sorttest2 10000 sort_descending
 (list of numbers) ...
-Timestamp before sorting: Seconds 1675916906,   Microseconds:382870
-Timestamp after sorting: Seconds 1675916906,    Microseconds:544238
-Time spent sorting: Seconds 0,  Microseconds:161368
+Timestamp before sorting: Seconds 1676122207,   Microseconds:988680
+Timestamp after sorting: Seconds 1676122208,    Microseconds:156638
+Time spent sorting: Seconds 0,  Microseconds:167958
 ```
 
-Test #2b: Random Range [0,100]
+Test #2b: Random Range [0,1000]
 ```sh
 $ ./sorttest2 10000 alt_sort_descending
 (list of numbers) ...
-Timestamp before sorting: Seconds 1675916972,   Microseconds:242782
-Timestamp after sorting: Seconds 1675916972,    Microseconds:242860
-Time spent sorting: Seconds 0,  Microseconds:78
+Timestamp before sorting: Seconds 1676122364,   Microseconds:369521
+Timestamp after sorting: Seconds 1676122364,    Microseconds:426562
+Time spent sorting: Seconds 0,  Microseconds:57041
 ```
-Running this test again with a different max and more numbers shows that the optimized sort is 2068 times faster.
+Running this test again with a different max and more numbers shows that the optimized sort is almost 3 times faster.
 
 My reasoning for this is that the time cost of accessing array elements with an index multiplies in an O(n^2) method such as bubble sort.
 Allowing the computer act more closely as a Turing computer with just one pointer prevents the computer from calculating unnecessarily calculations to swap faster.

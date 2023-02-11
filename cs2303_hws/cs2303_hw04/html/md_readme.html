@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>HW04: readme</title>
+<title>HW04: CS2303_HW04</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -39,10 +39,94 @@ $(function() {
 </div><!-- top -->
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">readme </div>  </div>
+<div class="title">CS2303_HW04 </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"></div></div><!-- contents -->
+<div class="textblock"><p>Author: Ryan Mechery</p>
+<p>For this assignment, 2 programs were created.</p><ol type="1">
+<li>sorttest – This program takes in numbers from the command line, puts them into an array, sorts them, and prints out time taken to sort.</li>
+<li>sorttest2 – This program does much of the same as sorrtest except it uses randomly generated values and lets user select sorting function.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Compilation</h1>
+<p>To compile the program, open the directory into any unix environment and enter make to compile all the source files. </p><div class="fragment"><div class="line">$ cd &lt;path to directory&gt;/cs2303_hw04</div>
+<div class="line"> ~/&lt;path to directory&gt;/cs2303_hw04$ make</div>
+</div><!-- fragment --><p> Note: To compile individual testers enter make <code>make sorttest</code> or <code>make sorttest2</code>.</p>
+<p>To get doxygen output, configure the target folder in the makefile and enter make docs. </p><div class="fragment"><div class="line">$ make docs</div>
+</div><!-- fragment --><p>To remove object files and executables, run this command: </p><div class="fragment"><div class="line">$ make clean</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md2"></a>
+sorttest usage</h1>
+<div class="fragment"><div class="line">$ ./sorttest num1 num2 nums3</div>
+</div><!-- fragment --> <table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Parameter   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>num1</code>   </td><td class="markdownTableBodyNone">int   </td><td class="markdownTableBodyNone"><b>Required</b>. Valid integer to be put in array.    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>num2</code>, <code>num3</code>, ...   </td><td class="markdownTableBodyNone">int   </td><td class="markdownTableBodyNone">Optional. Valid integer to also put in array   </td></tr>
+</table>
+<h1><a class="anchor" id="autotoc_md3"></a>
+sorttest2 usage</h1>
+<div class="fragment"><div class="line">$ ./sorttest2 array_size sort_type</div>
+</div><!-- fragment --> <table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Parameter   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>array_size</code>   </td><td class="markdownTableBodyNone">int   </td><td class="markdownTableBodyNone"><b>Required</b>. Size of random array.    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>sort_type</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone"><b>Required</b>. Type of sorting arrays. Either <code>sort_descending</code> or <code>alt_sort_descending</code>.   </td></tr>
+</table>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"><code>sort_type</code> options   </th><th class="markdownTableHeadNone">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>sort_descending</code>   </td><td class="markdownTableBodyNone">Regular bubble sort using array with indexes.    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>alt_sort_descending</code>   </td><td class="markdownTableBodyNone">Optimized bubble sort using pointer access.   </td></tr>
+</table>
+<h1><a class="anchor" id="autotoc_md4"></a>
+tests</h1>
+<div class="fragment"><div class="line">$ ./sorttest 0 1 2 3</div>
+<div class="line">Unsorted array:</div>
+<div class="line">0</div>
+<div class="line">1</div>
+<div class="line">2</div>
+<div class="line">3</div>
+<div class="line">Sorted array (descending order):</div>
+<div class="line">3</div>
+<div class="line">2</div>
+<div class="line">1</div>
+<div class="line">0</div>
+<div class="line">Timestamp before sorting: Seconds 1675917181,   Microseconds:515155</div>
+<div class="line">Timestamp after sorting: Seconds 1675917181,    Microseconds:515155</div>
+<div class="line">Time spent sorting: Seconds 0,  Microseconds:0</div>
+</div><!-- fragment --><p>Test #1a: Random Range [0,10] </p><div class="fragment"><div class="line">$ ./sorttest2 5000 sort_descending</div>
+<div class="line">(list of numbers) ...</div>
+<div class="line">Timestamp before sorting: Seconds 1675916377,   Microseconds:866438</div>
+<div class="line">Timestamp after sorting: Seconds 1675916377,    Microseconds:918095</div>
+<div class="line">Time spent sorting: Seconds 0,  Microseconds:51657</div>
+</div><!-- fragment --><p>Test #1b: Random Range [0,10] </p><div class="fragment"><div class="line">$ ./sorttest2 5000 alt_sort_descending</div>
+<div class="line">(list of numbers) ...</div>
+<div class="line">Timestamp before sorting: Seconds 1675916533,   Microseconds:404869</div>
+<div class="line">Timestamp after sorting: Seconds 1675916533,    Microseconds:404922</div>
+<div class="line">Time spent sorting: Seconds 0,  Microseconds:53</div>
+</div><!-- fragment --><p> Running test one shows that alt_sort is 974 times faster than running the regular bubble sort.</p>
+<p>Test #2a: Random Range [0,100] </p><div class="fragment"><div class="line">$ ./sorttest2 10000 sort_descending</div>
+<div class="line">(list of numbers) ...</div>
+<div class="line">Timestamp before sorting: Seconds 1675916906,   Microseconds:382870</div>
+<div class="line">Timestamp after sorting: Seconds 1675916906,    Microseconds:544238</div>
+<div class="line">Time spent sorting: Seconds 0,  Microseconds:161368</div>
+</div><!-- fragment --><p>Test #2b: Random Range [0,100] </p><div class="fragment"><div class="line">$ ./sorttest2 10000 alt_sort_descending</div>
+<div class="line">(list of numbers) ...</div>
+<div class="line">Timestamp before sorting: Seconds 1675916972,   Microseconds:242782</div>
+<div class="line">Timestamp after sorting: Seconds 1675916972,    Microseconds:242860</div>
+<div class="line">Time spent sorting: Seconds 0,  Microseconds:78</div>
+</div><!-- fragment --><p> Running this test again with a different max and more numbers shows that the optimized sort is 2068 times faster.</p>
+<p>My reasoning for this is that the time cost of accessing array elements with an index multiplies in an O(n^2) method such as bubble sort. Allowing the computer act more closely as a Turing computer with just one pointer prevents the computer from calculating unnecessarily calculations to swap faster.</p>
+<p>Test #3: Invalid <code>sort_type</code> </p><div class="fragment"><div class="line">$ ./sorttest2 10 new_sort</div>
+<div class="line">&quot;new_sort&quot; is not a valid sort type!</div>
+<div class="line">Only &quot;sort_descending&quot; and &quot;alt_sort_descending&quot; are allowed.</div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

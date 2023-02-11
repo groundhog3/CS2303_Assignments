@@ -73,17 +73,18 @@ void alt_sort_descending(int nums[], int count) {
   // Terminate early if array is in correct order.
   for(round = count - 1; (round > 0) && (!inorder); round--) {
     inorder = 1;  // Assume in correct order, until found otherwise.
+    ptr = &nums[0];
 
     // Repeat inner loop, testing array elements 0 through round
     // Compare two adjacent elements of the array and swap if wrong order
     for (i = 0; i < round; i++) {
-      ptr = &nums[0];
       if (*ptr < *(ptr+1)) {
         inorder = 0;      // At least one pair had to be swapped
         temp = *(ptr+1);
         *ptr = *(ptr+1);
-        *(++ptr+1) = temp;
+        *(ptr +1) = temp;
       }
+      ptr++;
     }
   }
 }
