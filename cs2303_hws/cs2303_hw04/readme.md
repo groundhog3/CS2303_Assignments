@@ -80,11 +80,11 @@ Test #1b: Random Range [0,10]
 ```sh
 $ ./sorttest2 5000 alt_sort_descending
 (list of numbers) ...
-Timestamp before sorting: Seconds 1676122081,   Microseconds:195648
-Timestamp after sorting: Seconds 1676122081,    Microseconds:196743
-Time spent sorting: Seconds 0,  Microseconds:1095
+Timestamp before sorting: Seconds 1676122914,   Microseconds:680067
+Timestamp after sorting: Seconds 1676122914,    Microseconds:714086
+Time spent sorting: Seconds 0,  Microseconds:34019
 ```
-Running test one shows that alt_sort is 36 times faster than running the regular bubble sort.
+Running test one shows that alt_sort is 1.17 times faster than running the regular bubble sort.
 
 Test #2a: Random Range [0,1000]
 ```sh
@@ -99,14 +99,14 @@ Test #2b: Random Range [0,1000]
 ```sh
 $ ./sorttest2 10000 alt_sort_descending
 (list of numbers) ...
-Timestamp before sorting: Seconds 1676122364,   Microseconds:369521
-Timestamp after sorting: Seconds 1676122364,    Microseconds:426562
-Time spent sorting: Seconds 0,  Microseconds:57041
+Timestamp before sorting: Seconds 1676122766,   Microseconds:735068
+Timestamp after sorting: Seconds 1676122766,    Microseconds:886740
+Time spent sorting: Seconds 0,  Microseconds:167958
 ```
-Running this test again with a different max and more numbers shows that the optimized sort is almost 3 times faster.
+Running this test again with a different max and more numbers shows that the optimized sort is around 1.11 times faster.
 
-My reasoning for this is that the time cost of accessing array elements with an index multiplies in an O(n^2) method such as bubble sort.
-Allowing the computer act more closely as a Turing computer with just one pointer prevents the computer from calculating unnecessarily calculations to swap faster.
+My reasoning for this 10% performance gain is that the time cost of accessing array elements with an index multiplies in an O(n^2) method such as bubble sort.
+Allowing the computer act more closely as a Turing computer with just one pointer prevents the computer from calculating unnecessarily calculations to swap a little bit faster. But ultimately, swapping takes more time than calculating memory addresses.
 
 Test #3: Invalid `sort_type`
 ```sh

@@ -80,7 +80,7 @@ void alt_sort_descending(int nums[], int count) {
     for (i = 0; i < round; i++) {
       if (*ptr < *(ptr+1)) {
         inorder = 0;      // At least one pair had to be swapped
-        temp = *(ptr+1);
+        temp = *ptr;
         *ptr = *(ptr+1);
         *(ptr +1) = temp;
       }
