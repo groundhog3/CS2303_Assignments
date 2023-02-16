@@ -12,6 +12,19 @@ stacktest.o: stacktest.c stack.h
 stacktest_dbg.o: stacktest.c stack.h
 	gcc -g -c stacktest.c -o stacktest_dbg.o -DDEBUG_TEST
 
+
+stacktest2: stacktest2.o stack.o
+	gcc -g stacktest2.o stack.o -o stacktest2
+
+stacktest2_dbg: stacktest2_dbg.o stack.o
+	gcc -g stacktest2_dbg.o stack.o -o stacktest2_dbg
+
+stacktest2.o: stacktest2.c stack.h
+	gcc -g -c stacktest2.c
+
+stacktest2_dbg.o: stacktest2.c stack.h
+	gcc -g -c stacktest2.c -o stacktest2_dbg.o -DDEBUG_TEST
+
 stack.o: stack.c stack.h
 	gcc -g -c stack.c
 
@@ -21,4 +34,4 @@ docs:
 
 
 clean:
-	rm -f *.o stacktest stacktest_dbg
+	rm -f *.o stacktest stacktest_dbg stacktest2

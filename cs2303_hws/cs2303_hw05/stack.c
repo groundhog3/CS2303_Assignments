@@ -6,6 +6,7 @@
 
 #include <stddef.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "stack.h"
 
 /** Function to create a stack with defined size. The returned Stack structure
@@ -14,19 +15,22 @@
  *
  * @return pointer to Stack structure or NULL on error
  */
-Stack * create ( void ) {
+Stack * create ( int max_elements ) {
   Stack * stack = NULL;
 
   // Allocate memory for the structure identifying stack and its state
   // Check for failed allocation and return NULL if failure
-  stack = (Stack *) calloc (1, sizeof(Stack));
+  stack = (Stack *) calloc (1, sizeof(Stack) + sizeof(void *) * max_elements);
   if (stack == NULL) {
     return stack;
   }
 
-  // Valid stack was allocated, initialize attributes
-  // Note: because we called calloc, fields initialized to 0
-  stack->top = stack->base = (void *) stack;
+
+  //initialize top and base to start of ELEMENTS
+  // NOTE: position changed from lab05 since struct was redefined
+  stack->top = stack->base = (void*)stack->elements;
+
+  stack->max_elements = max_elements;
 
   return stack;
 }
@@ -77,7 +81,8 @@ int numelements(Stack *stack) {
  */
 int maxelements (Stack *stack) {
   // Note: we assume stack is not larger than we  can represent by signed int
-  return (int) (sizeof(stack->elements));
+  //return (int) (sizeof(stack->elements));
+  return stack->max_elements;
 }
 
 /** Function to support peeking at the current top of stack. This function
@@ -144,8 +149,9 @@ void * pop (Stack *stack) {
  */
 void * push (Stack *stack, void *element) {
   // If stack is full, we can't push another element
-  size_t maxelements = sizeof(stack->elements) / sizeof(void *);
-  if (maxelements == (stack->top - stack->base)) {
+  //size_t maxelements = sizeof(stack->elements) / sizeof(void *);
+
+  if (stack->max_elements == stack->num_elements) {
     return (void *) NULL;
   }
 
