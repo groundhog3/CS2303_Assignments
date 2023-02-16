@@ -25,7 +25,7 @@ int main (int argc, char *argv[]) {
   // Create a stack to hold our test data
   the_stack = create( user_size );
 
-  #ifndef DEBUG_TEST
+  #ifdef DEBUG_TEST
     printf("Enter lines of strings into stack. Press CTRL+D to stop.\n");
   #endif
 

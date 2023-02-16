@@ -1,4 +1,4 @@
-all: stacktest stacktest_dbg
+all: stacktest stacktest_dbg stacktest2 stacktest2_dbg
 
 stacktest: stacktest.o stack.o
 	gcc -g stacktest.o stack.o -o stacktest

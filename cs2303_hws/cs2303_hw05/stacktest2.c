@@ -27,7 +27,7 @@ int main (int argc, char *argv[]) {
   	// Create a stack to hold our test data
   	main_stack = create( user_size );
 
-  	#ifndef DEBUG_TEST
+  	#ifdef DEBUG_TEST
   		printf("Enter lines of strings into stack. Press CTRL+D to stop.\n");
   	#endif
 
@@ -36,7 +36,7 @@ int main (int argc, char *argv[]) {
   	size_t buff_idx;
   	ssize_t buff_line_sz;
 
-  	Stack *sub_stack[max_elements];
+  	Stack *sub_stack[user_size];
 
 	for(buff_idx = 0; stdin != NULL && buff_idx < user_size; buff_idx++){
 		buff_line_sz = getline(&buffers[buff_idx], &buff_size, stdin);
@@ -46,12 +46,12 @@ int main (int argc, char *argv[]) {
 		#endif
 
 		sub_stack[buff_idx] = create (buff_line_sz);
-		int i; //temp counter 
+		int i; //temp counter
 		for(i = 0; i < buff_line_sz; i++){
-			push(sub_stack[buff_idx], buffers[buff_idx][i]);
+			push(sub_stack[buff_idx], &buffers[buff_idx][i]);
 		}
 
-		push(main_stack, buffers[buff_idx]);
+		push(main_stack, sub_stack[buff_idx]);
 
 		#ifdef DEBUG_TEST
 		  printf("top of stack now \"%s\"\n", (char *) peek(main_stack));
@@ -59,21 +59,18 @@ int main (int argc, char *argv[]) {
 	}
 
 		// Now pop the elements off the stack
-	#ifdef DEBUG_TEST
-	    printf("Output: \n");
-	#endif
-
 	while (!isempty(main_stack)) {
-		char *element = (char *) pop(main_stack);
-		#ifdef DEBUG_TEST
-		  printf("popped element \"%s\"\n", element);
-		#endif
-		#ifndef DEBUG_TEST
-		  printf("%s", element);
-		#endif
+		Stack *sub = (Stack *) pop(main_stack);
+		while(!isempty(sub)){
+			char *element = (char *) pop(sub);
+			printf("%c", *element);
+		}
 	}
+	printf("\n");
 
 	destroy(main_stack);
-	destroy(sub_stack);
+	for(int i = 0; i < user_size; i++){
+		destroy(sub_stack[i]);
+	}
 	free(buffers);
 }

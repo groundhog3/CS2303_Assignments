@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lab05: stack.h File Reference</title>
+<title>HW05: stack.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Lab05
+   <div id="projectname">HW05
    </div>
   </td>
  </tr>
@@ -79,8 +79,8 @@ Functions</h2></td></tr>
 <tr class="separator:a0ee3699e5957f7bb1b2b8aec32251052"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8b297ca6da77b51269d626f527e97fc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#af8b297ca6da77b51269d626f527e97fc">maxelements</a> (<a class="el" href="stack_8h.html#aa7883e8bf747b9dedec990b539df2cc0">Stack</a> *<a class="el" href="structstack.html">stack</a>)</td></tr>
 <tr class="separator:af8b297ca6da77b51269d626f527e97fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92a5250771bbef1334f4a4844901236a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stack_8h.html#aa7883e8bf747b9dedec990b539df2cc0">Stack</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a92a5250771bbef1334f4a4844901236a">create</a> (void)</td></tr>
-<tr class="separator:a92a5250771bbef1334f4a4844901236a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27273ea6482abd40cd8b866df2e94e3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stack_8h.html#aa7883e8bf747b9dedec990b539df2cc0">Stack</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a27273ea6482abd40cd8b866df2e94e3e">create</a> (int max_elements)</td></tr>
+<tr class="separator:a27273ea6482abd40cd8b866df2e94e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a256b1c0dd8a00faf283db0e684f1c888"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a256b1c0dd8a00faf283db0e684f1c888">destroy</a> (<a class="el" href="stack_8h.html#aa7883e8bf747b9dedec990b539df2cc0">Stack</a> *<a class="el" href="structstack.html">stack</a>)</td></tr>
 <tr class="separator:a256b1c0dd8a00faf283db0e684f1c888"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -117,8 +117,8 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a92a5250771bbef1334f4a4844901236a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92a5250771bbef1334f4a4844901236a">&#9670;&nbsp;</a></span>create()</h2>
+<a id="a27273ea6482abd40cd8b866df2e94e3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27273ea6482abd40cd8b866df2e94e3e">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -126,8 +126,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="stack_8h.html#aa7883e8bf747b9dedec990b539df2cc0">Stack</a>* create </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>max_elements</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -136,7 +136,7 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Blake Nelson Function to create a stack with defined size. The returned Stack structure must be passed to each stack operation to identify the stack and its state.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>pointer to Stack structure or NULL on error </dd></dl>
 
-<p class="reference">References <a class="el" href="structstack.html#a806753ad4427789d88cc7053ac906b66">stack::base</a>, and <a class="el" href="structstack.html#a73f787249218fe5a08ebb9c333bf1838">stack::top</a>.</p>
+<p class="reference">References <a class="el" href="structstack.html#a806753ad4427789d88cc7053ac906b66">stack::base</a>, <a class="el" href="structstack.html#a417695b6c0d59b386d6573f5b24b5b17">stack::elements</a>, <a class="el" href="structstack.html#ad97ed15767c553f9515db09fd6a53958">stack::max_elements</a>, and <a class="el" href="structstack.html#a73f787249218fe5a08ebb9c333bf1838">stack::top</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="stacktest_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
@@ -166,6 +166,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>none. </dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="stacktest_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>
@@ -223,9 +225,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the maximum number of elements the stack can hold </dd></dl>
 
-<p class="reference">References <a class="el" href="structstack.html#a8407f1a5e482b9dd27b98c217dfaf320">stack::elements</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="stack_8c.html#a3597c114115797d73e009165154b6c34">push()</a>.</p>
+<p class="reference">References <a class="el" href="structstack.html#ad97ed15767c553f9515db09fd6a53958">stack::max_elements</a>.</p>
 
 </div>
 </div>
@@ -286,7 +286,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="structstack.html#acac1d5c1cc7821c2489ac45cc4d4c62c">stack::num_elements</a>, and <a class="el" href="structstack.html#a73f787249218fe5a08ebb9c333bf1838">stack::top</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stacktest_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, <a class="el" href="stack_8c.html#ab9b175f5ea01bed047c29bcdb935a111">pop()</a>, and <a class="el" href="stack_8c.html#a3597c114115797d73e009165154b6c34">push()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stacktest_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>
@@ -315,7 +315,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the top element from the stack or null if the stack is empty </dd></dl>
 
-<p class="reference">References <a class="el" href="structstack.html#acac1d5c1cc7821c2489ac45cc4d4c62c">stack::num_elements</a>, <a class="el" href="stack_8c.html#abe092a1f1f86adbf506ffe4c841de5bc">peek()</a>, and <a class="el" href="structstack.html#a73f787249218fe5a08ebb9c333bf1838">stack::top</a>.</p>
+<p class="reference">References <a class="el" href="structstack.html#acac1d5c1cc7821c2489ac45cc4d4c62c">stack::num_elements</a>, and <a class="el" href="structstack.html#a73f787249218fe5a08ebb9c333bf1838">stack::top</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="stacktest_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
@@ -357,7 +357,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a pointer to the element pushed onto the stack or NULL on failure </dd></dl>
 
-<p class="reference">References <a class="el" href="structstack.html#a806753ad4427789d88cc7053ac906b66">stack::base</a>, <a class="el" href="structstack.html#a8407f1a5e482b9dd27b98c217dfaf320">stack::elements</a>, <a class="el" href="stack_8c.html#af8b297ca6da77b51269d626f527e97fc">maxelements()</a>, <a class="el" href="structstack.html#acac1d5c1cc7821c2489ac45cc4d4c62c">stack::num_elements</a>, <a class="el" href="stack_8c.html#abe092a1f1f86adbf506ffe4c841de5bc">peek()</a>, and <a class="el" href="structstack.html#a73f787249218fe5a08ebb9c333bf1838">stack::top</a>.</p>
+<p class="reference">References <a class="el" href="structstack.html#ad97ed15767c553f9515db09fd6a53958">stack::max_elements</a>, <a class="el" href="structstack.html#acac1d5c1cc7821c2489ac45cc4d4c62c">stack::num_elements</a>, and <a class="el" href="structstack.html#a73f787249218fe5a08ebb9c333bf1838">stack::top</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="stacktest_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
