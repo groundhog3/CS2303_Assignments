@@ -56,8 +56,8 @@ int main (int argc, char *argv[]) {
   // a) getline is null
   // b) max elements in stack reached
   for(buff_idx = 0; 
-    getline(&buffers[buff_idx], &buff_size, stdin) != -1 
-    && buff_idx < user_size; buff_idx++){
+    buff_idx < user_size && 
+    getline(&buffers[buff_idx], &buff_size, stdin) != -1 ; buff_idx++){
    
     #ifdef DEBUG_TEST
       printf("pushing element \"%s\"\n", buffers[buff_idx]);
