@@ -1,13 +1,15 @@
 /** Header file for stack data structure implementation
  *
- * @author Blake Nelson
+ * @author Ryan Mechery
  *
  */
 #ifndef STACK_H
 #define STACK_H
 
-#define SZ_STACK (120)      // Number of elements to hold in stack
-
+/** A struct to make a dynamic size stack
+ *  Note: B/c this is struct uses FAM 
+ *  sizeof(stack) will NOT return true size of stack.
+ * */
 typedef struct stack {
   int num_elements;         /**< Num elements in the stack - 0 when empty */
   int max_elements;         /**< Size of elements array */
@@ -18,7 +20,6 @@ typedef struct stack {
 
 /** Function prototypes for stack operations 
  */
-
 void * peek (Stack *stack);
 void * pop (Stack *stack);
 void * push (Stack *stack, void *element);

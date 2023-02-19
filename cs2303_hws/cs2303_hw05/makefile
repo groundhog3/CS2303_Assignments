@@ -34,4 +34,4 @@ docs:
 
 
 clean:
-	rm -f *.o stacktest stacktest_dbg stacktest2
+	rm -f *.o stacktest stacktest_dbg stacktest2 stacktest2_dbg

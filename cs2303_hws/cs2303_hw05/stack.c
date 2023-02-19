@@ -1,7 +1,7 @@
 /** Functions to support Stack implementation. Each stack element is a 
  * pointer to void. This allows any type of object to be stored on the stack
  *
- * @author Blake Nelson
+ * @author Ryan Mechery
  */
 
 #include <stddef.h>
@@ -25,8 +25,7 @@ Stack * create ( int max_elements ) {
     return stack;
   }
 
-
-  //initialize top and base to start of ELEMENTS
+  // initialize top and base to start of ELEMENTS
   // NOTE: position changed from lab05 since struct was redefined
   stack->top = stack->base = (void*)stack->elements;
 
@@ -81,7 +80,7 @@ int numelements(Stack *stack) {
  */
 int maxelements (Stack *stack) {
   // Note: we assume stack is not larger than we  can represent by signed int
-  //return (int) (sizeof(stack->elements));
+  //old: return (int) (sizeof(stack->elements));
   return stack->max_elements;
 }
 
