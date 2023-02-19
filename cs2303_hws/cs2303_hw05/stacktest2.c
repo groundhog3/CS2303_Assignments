@@ -6,7 +6,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 #include "stack.h"
+
+#define MAXLINE (4096) 
 
 /** main function to demonstrate use of stack
  *  @return 0 on success
@@ -18,7 +22,7 @@ int main (int argc, char *argv[]) {
 		return 1;
 	}
 	int user_size = atoi(argv[1]);  //get user_size from first arg input
-	if(user_size <= 0){
+	if(user_size < 0){
 		printf ("Entered %d but max_elements must be >= 0!\n", user_size);
 		return 1;
 	}
@@ -35,7 +39,7 @@ int main (int argc, char *argv[]) {
   		printf("Enter lines of strings into stack. Press CTRL+D to stop.\n");
   	#endif
 
-  	ssize_t buff_size = 4096; //max size of line in unix terminal
+  	ssize_t buff_size = MAXLINE; //max size of line in unix terminal
   	char ** buffers = calloc(user_size, buff_size); 
     //array that holds dyn. allocated array of strings
 
@@ -96,5 +100,5 @@ int main (int argc, char *argv[]) {
 	}
 	
 	destroy(main_stack); //free main_stack
-	free(buffers); 
+	free(buffers);  //free buffer array
 }

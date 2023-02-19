@@ -7,8 +7,7 @@
 #define STACK_H
 
 /** A struct to make a dynamic size stack
- *  Note: B/c this is struct uses FAM 
- *  sizeof(stack) will NOT return true size of stack.
+ *  @warning Note: B/c this is struct uses FAM sizeof(stack) will NOT return true size of stack.
  * */
 typedef struct stack {
   int num_elements;         /**< Num elements in the stack - 0 when empty */

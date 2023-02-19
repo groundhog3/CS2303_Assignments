@@ -5,7 +5,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 #include "stack.h"
+
+
+#define MAXLINE (4096)
 
 /** main function to demonstrate use of stack
  *  @return 0 on success
@@ -19,7 +24,7 @@ int main (int argc, char *argv[]) {
 
   int user_size = atoi(argv[1]); //get user_size from first arg input
 
-  if(user_size <= 0){
+  if(user_size < 0){
     printf ("Entered %d but max_elements must be >= 0!\n", user_size);
     return 1;
   }
@@ -36,8 +41,8 @@ int main (int argc, char *argv[]) {
     printf("Enter lines of strings into stack. Press CTRL+D to stop.\n");
   #endif
 
-  ssize_t buff_size = 4096; //max size of line in unix terminal
-  char ** buffers = calloc(user_size, buff_size); 
+  ssize_t buff_size = MAXLINE; //max size of line in unix terminal
+  char ** buffers = calloc(user_size, MAXLINE); 
     //array that holds dyn. allocated array of strings
 
   if(buffers == NULL){
@@ -51,8 +56,8 @@ int main (int argc, char *argv[]) {
   // a) getline is null
   // b) max elements in stack reached
   for(buff_idx = 0; 
-    getline(&buffers[buff_idx], &buff_size, stdin) != -1 && 
-    buff_idx < user_size; buff_idx++){
+    getline(&buffers[buff_idx], &buff_size, stdin) != -1 
+    && buff_idx < user_size; buff_idx++){
    
     #ifdef DEBUG_TEST
       printf("pushing element \"%s\"\n", buffers[buff_idx]);
@@ -71,9 +76,8 @@ int main (int argc, char *argv[]) {
     #ifdef DEBUG_TEST
       printf("popped element \"%s\"\n", element);
     #endif
-    #ifndef DEBUG_TEST
-      printf("%s", element);
-    #endif
+    
+    printf("%s", element);
   }
  
   destroy(the_stack); // free memory from stack

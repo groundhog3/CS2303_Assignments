@@ -40,7 +40,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -54,11 +53,6 @@ $(function() {
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstack.html">stack</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:aa02d14399c646a9fe263a5ec9f18b5bb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#aa02d14399c646a9fe263a5ec9f18b5bb">SZ_STACK</a>&#160;&#160;&#160;(120)</td></tr>
-<tr class="separator:aa02d14399c646a9fe263a5ec9f18b5bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -84,23 +78,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a256b1c0dd8a00faf283db0e684f1c888"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a256b1c0dd8a00faf283db0e684f1c888">destroy</a> (<a class="el" href="stack_8h.html#aa7883e8bf747b9dedec990b539df2cc0">Stack</a> *<a class="el" href="structstack.html">stack</a>)</td></tr>
 <tr class="separator:a256b1c0dd8a00faf283db0e684f1c888"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="aa02d14399c646a9fe263a5ec9f18b5bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa02d14399c646a9fe263a5ec9f18b5bb">&#9670;&nbsp;</a></span>SZ_STACK</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SZ_STACK&#160;&#160;&#160;(120)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Header file for stack data structure implementation</p>
-<dl class="section author"><dt>Author</dt><dd>Blake Nelson </dd></dl>
-
-</div>
-</div>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="aa7883e8bf747b9dedec990b539df2cc0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa7883e8bf747b9dedec990b539df2cc0">&#9670;&nbsp;</a></span>Stack</h2>
@@ -113,6 +90,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Header file for stack data structure implementation</p>
+<dl class="section author"><dt>Author</dt><dd>Ryan Mechery A struct to make a dynamic size stack </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Note: B/c this is struct uses FAM sizeof(stack) will NOT return true size of stack. </dd></dl>
 
 </div>
 </div>
@@ -133,7 +113,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Functions to support Stack implementation. Each stack element is a pointer to void. This allows any type of object to be stored on the stack</p>
-<dl class="section author"><dt>Author</dt><dd>Blake Nelson Function to create a stack with defined size. The returned Stack structure must be passed to each stack operation to identify the stack and its state.</dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Ryan Mechery Function to create a stack with defined size. The returned Stack structure must be passed to each stack operation to identify the stack and its state.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>pointer to Stack structure or NULL on error </dd></dl>
 
 <p class="reference">References <a class="el" href="structstack.html#a806753ad4427789d88cc7053ac906b66">stack::base</a>, <a class="el" href="structstack.html#a417695b6c0d59b386d6573f5b24b5b17">stack::elements</a>, <a class="el" href="structstack.html#ad97ed15767c553f9515db09fd6a53958">stack::max_elements</a>, and <a class="el" href="structstack.html#a73f787249218fe5a08ebb9c333bf1838">stack::top</a>.</p>
