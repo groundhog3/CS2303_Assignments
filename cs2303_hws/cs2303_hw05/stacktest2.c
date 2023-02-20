@@ -27,10 +27,9 @@ int main (int argc, char *argv[]) {
 		return 1;
 	}
 
-	Stack *main_stack; // Create a stack that holds a set of stacks
-  	main_stack = create( user_size ); //set size of stack to user_def size
+	Stack *the_stack[user_size]; // Create a collection of stacks
 
-  	if(main_stack == NULL){
+  	if(the_stack == NULL){
       printf("Not enough space to create main_stack.\n");
       return 1;
  	}
@@ -53,21 +52,19 @@ int main (int argc, char *argv[]) {
 
   	Stack *sub_stack[user_size]; // contains pointers to stacks in the_stack
 
-
   	// this loop terminates either when either:
   	// a) getline is null
   	// b) max elements in stack reached
 	for(buff_idx = 0; 
     	buff_idx < user_size && 
     	(buff_line_sz = getline(&buffers[buff_idx], &buff_size, stdin)) != -1 ; buff_idx++){
+		the_stack[buff_idx] = create(buff_line_sz); //create stack elem
 		
 		#ifdef DEBUG_TEST
 		  printf("pushing element \"%s\"\n", buffers[buff_idx]);
 		#endif
 
-		sub_stack[buff_idx] = create (buff_line_sz); //create sub_stack
-
-		if(sub_stack[buff_idx] == NULL){
+		if(the_stack[buff_idx] == NULL){
 			printf("Not enough space to create sub_stack[%ld]\n", buff_idx);
   			return 1;
 		}
@@ -76,20 +73,19 @@ int main (int argc, char *argv[]) {
 		//this loop pushes all characters to sub stack except '\n' and '\0'
 		for(i = 0; i < buff_line_sz; i++){
 			if(buffers[buff_idx][i] != '\0' && buffers[buff_idx][i] != '\n'){
-				push(sub_stack[buff_idx], &buffers[buff_idx][i]);
+				push(the_stack[buff_idx], &buffers[buff_idx][i]);
 			}
 		}
-	
-		push(main_stack, sub_stack[buff_idx]); //push substack into stack
 
 		#ifdef DEBUG_TEST
-		  printf("top of stack now \"%s\"\n", (char *) peek(main_stack));
+		  printf("top of stack now \"%s\"\n", (char *) peek(the_stack[user_size]));
 		#endif
 	}
 
- 	// Now pop the substacks off the stack
-	while (!isempty(main_stack)) {
-		Stack *sub = (Stack *) pop(main_stack);
+ 	// Now pop chars from stack in collection 
+ 	int stack_idx; //counter for each stack elem
+	for(stack_idx = 0; stack_idx < buff_idx; stack_idx++) {
+		Stack *sub = the_stack[stack_idx]; //sub stack
 		//Pop each character off each sub stack
 		while(!isempty(sub)){
 			char *element = (char *) pop(sub);
@@ -99,6 +95,5 @@ int main (int argc, char *argv[]) {
 		destroy(sub); //free sub_stack
 	}
 	
-	destroy(main_stack); //free main_stack
 	free(buffers);  //free buffer array
 }

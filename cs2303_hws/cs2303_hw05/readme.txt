@@ -4,7 +4,7 @@ This assignment tests creating dynamic-sized stacks and reading input from the k
 In total 4 programs were created:
 1. `./stacktest` This takes x num strings, pushes them into a stack, and then pops them off.
 2. `./stacktest_dbg` Same as `./stacktest` with debugging tools.
-3. `./stacktest2` This takes x num strings, pushes them into a stack, and then prints each string in reverse order.
+3. `./stacktest2` This takes x num strings, prints each string in reverse order.
 4. `./stacktest2_dbg` Same as `./stacktest2` with debugging tools.
 
 # Compilation 
@@ -93,33 +93,32 @@ This is a line
 **Note**: Although only 5 elements were printed, this stack can contain 5 more elements.
 
 
-
 ```sh
 $ ./stacktest2 5 < input.txt
-enil lanif dna htfiF
-htruof
-enil driht
-enil dnoces eht si sihT
 enil a si sihT
+enil dnoces eht si sihT
+enil driht
+htruof
+enil lanif dna htfiF
 ```
 **Note**: Only reverses non-null and non-newline characters.
 
 ```sh
 $ cat input.txt | ./stacktest 100 | ./stacktest2 7
-enil a si sihT
-enil dnoces eht si sihT
-enil driht
-htruof
 enil lanif dna htfiF
+htruof
+enil driht
+enil dnoces eht si sihT
+enil a si sihT
 ```
 
 ```sh
 $ cat input.txt | ./stacktest2 100 | ./stacktest 7
-enil a si sihT
-enil dnoces eht si sihT
-enil driht
-htruof
 enil lanif dna htfiF
+htruof
+enil driht
+enil dnoces eht si sihT
+enil a si sihT
 ```
 **Note**: Exact same output as previous test.
 
