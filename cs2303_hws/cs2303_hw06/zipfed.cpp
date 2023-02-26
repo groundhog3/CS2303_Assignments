@@ -185,8 +185,6 @@ int Zipfed::parse_zip_cs2303 (char *csv) {
 }
 
 /** Function to print zipcode structure to stdout
- *
- * 
  */
 void Zipfed::print (void) {
   printf ("%s,", zipcode.c_str());
@@ -220,6 +218,10 @@ void Zipfed::print (void) {
  * @param input input file pointer
  * */
 void Zipfed::print (FILE* input) {
+  //if file stream was null don't print anything
+  if(input == NULL)
+    return;
+
   fprintf (input, "%s,", zipcode.c_str());
   switch (zctype) {
   case STANDARD:
@@ -255,6 +257,13 @@ bool Zipfed::is_from_MA(){
   return state.compare("MA") == 0;
 }
 
+/** Getter method to return zipcode attribute
+ * @return zip string 
+*/
+std::string Zipfed::get_zip(){
+  return zipcode;
+} 
+
 /** Getter method to return city attribute
  * @return city string 
 */
@@ -262,23 +271,17 @@ std::string Zipfed::get_city(){
   return city;
 } 
 
-/** Method that returns true if Zipfed object is from all queries
- * @param queries pointer to vector containing strings of all city queries
- * @return true if from MA
- * @return false if not from MA
+/** Method that returns true if Zipfed object is from query
+ * @param query_city string containing name of city
+ * @return true if from query_city
+ * @return false if not from query_city
+ * Note: string characters must be exact but capitalization doesn't matter
  * */
-bool Zipfed::is_from(std::vector<std::string> &queries){
-  std::string query_city, c;
-
-  for(int i = 0; i < queries.size(); i++){
-    query_city = queries.at(i);
-    for(int j = 0; j < query_city.size(); j++){
+bool Zipfed::is_from(std::string query_city){
+  for(int j = 0; j < query_city.size(); j++){
       std::string c(1, toupper(query_city.at(j)));
       query_city.replace(j, 1, c );
     }
-    
-    if(city.compare(query_city) == 0)
-      return true;
-  }
-  return false;
+
+  return city.compare(query_city) == 0;
 }

@@ -47,11 +47,12 @@ public:
   Zipfed();                         /**< default constructor for Zipfed */
   int parse_zip_federal(char *csv); /**< parse and inialize from line of input */
   int parse_zip_cs2303(char *csv); /**< same as prev. adj for new csv */
-  void print(void);
-  void print(FILE* input);
-  bool is_from_MA();
-  bool is_from(std::vector<std::string> &queries);
-  std::string get_city();
+  void print(void);                /**< used to print zipfed object contents */
+  void print(FILE* input);         /**< used to write zipfed obj. contents to file */
+  bool is_from_MA();               /**< returns true if zipfed obj. is from MA */
+  bool is_from(std::string city);  /**< returns true if zipfed obj. is from query_city */
+  std::string get_zip();           /**< getter method for zipcode attr. */
+  std::string get_city();          /**< getter method for city attr. */
 };
 
 

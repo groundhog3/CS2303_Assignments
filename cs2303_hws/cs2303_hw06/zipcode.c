@@ -11,7 +11,6 @@
 #include <forward_list>
 #include <readline/readline.h>
 #include <readline/history.h>
-#include <vector>
 #include <iostream>
 #include "zipfed.hpp"
 //#include "zipfilter.h" - not sure what this is
@@ -109,23 +108,6 @@ int main (int argc, char *argv[]) {
         return -2;
     }
 
-    std::vector<std::string> queries; 
-    //this vector contains names of cities user enters
-    char * buffer = (char *) calloc(1, MAXLINE); 
-    //dyn. allocated space for line buffer
-
-    printf("Enter city names line by line: (CTRL+D to stop)\n");
-
-    size_t buff_idx; //counter for loop
-    // this loop terminates either when:
-    // a) getline is null
-    // b) max elements in stack reached
-    for(buff_idx = 0; (buffer = readline("_ ")) != NULL ; buff_idx++){
-        queries.push_back(buffer); //push city query into vector
-    }
-    printf("\n");
-    
-
     // Now loop to process each line of zip code data in CSV format
     while ((chars_read = readln_fedcs2303(&inbuf, &sz_inbuf, fdIn)) != EOF) {
         if (chars_read == 0) {  // not EOF, but nothing to process
@@ -153,8 +135,7 @@ int main (int argc, char *argv[]) {
 
         // Add the city to linked list if any string 
         // from queries vector matches object
-        if(pZipfed->is_from(queries))
-            llist.push_front(pZipfed);
+        llist.push_front(pZipfed);
     }
 
     //sort list by city name alphabetically
@@ -162,13 +143,25 @@ int main (int argc, char *argv[]) {
 
     printf("All items from %s were processed successfully!\n\n", infile);
 
-    // Now iterate through the list to make sure it's all there
-    // zipprint will print the struct to output stream
-    for(std::forward_list<Zipfed *>::iterator it = llist.begin(); it != llist.end(); it++) {
-        Zipfed * pTmpZipfed = *it;
-        pTmpZipfed->print();
-    }
+    char * buffer = (char *) calloc(1, MAXLINE); 
+    //dyn. allocated space for line buffer
 
+    printf("Enter city names line by line: (CTRL+D to stop)\n");
+
+    size_t buff_idx; //counter for loop
+    // this loop terminates when readline is null
+    for(buff_idx = 0; (buffer = readline("_ ")) != NULL ; buff_idx++){
+        // Now iterate through the list to make sure it's all there
+        // zipprint will print the struct to output stream
+        for(std::forward_list<Zipfed *>::iterator it = llist.begin(); it != llist.end(); it++) {
+            Zipfed * pTmpZipfed = *it;
+            //only print city if from city
+            if(pTmpZipfed->is_from(buffer))
+                std::cout << pTmpZipfed->get_zip() << "\n";
+        }
+    }
+    printf("\n");
+    
 
     /* Free memory before exiting
    * keep deleting the head until list is empty.
