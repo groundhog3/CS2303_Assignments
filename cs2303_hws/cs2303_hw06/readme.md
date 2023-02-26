@@ -1,4 +1,4 @@
-# CS2303_HW05
+# CS2303_HW06
 
 For this assignment, 2 programs were created.
 1. `fed2cs2303`: this program was finished in lab06 and parses a CSV from federal govt.
